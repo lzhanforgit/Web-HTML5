@@ -6,20 +6,26 @@ NODE
 1. NODE
     
     1. node类型(12种)
-            
-    ```
-        console.log(ele.nodeType)；
-                //1-element
-                //2-attribute
-                //3-text
-    ```
+
+
+        ```
+            console.log(ele.nodeType)；
+                    //1-element
+                    //2-attribute
+                    //3-text
+        ```
+
     2. nodeName
 
-    ```
-        var ele=document.getElementsByTagName('div')[0];
-        console.log(ele.nodeName);//DIV
-    ```      
+        >如果节点类型为1，则该节点有tagName属性。
+
+        ```
+            var ele=document.getElementsByTagName('div')[0];
+            console.log(ele.nodeName);//DIV
+        ```
     3. nodeValue
+
+
     
 2. 节点关系
 
@@ -135,7 +141,8 @@ NODE
         var ff=ul.remove();     //清空所有子元素,ff:undefined
         
 9. cloneNode(boolen)
-    >当参数为true表示深复制,内部节点都复制。false表示只复制当前的节点
+
+      >当参数为true表示深复制,内部节点都复制。false表示只复制当前的节点
     
         var uull=ul.cloneNode(true);
         document.body.appendChild(uull);
@@ -154,13 +161,144 @@ DOCUMENT
     >所以浏览器都支持
     
         document.body;              //body 节点
-        document.elementElement;    //html 节点
+        document.documentElement;    //html 节点
         
         document.title='hello js';  
         console.log("..."+document.URL);
         console.log("..."+document.domain);//域名
         
-11. 查找元素
+11. 查找元素(p:257)
     
     document.getElementById();
+
+    >为了防止出错，元素的name和id属性值不要相同。
+
     document.getElementsByTagName()
+
+         <div id="div01" name="div_01">111</div>
+         <div name="div_02">222</div>
+         <div name="div_03">333</div>
+         <div name="div_04">444</div>
+
+         var divs=document.getElementsByTagName('div');
+         var con1=divs[0].firstChild;
+         console.log(con1);     //"111"
+         var con2=divs['div_01'].firstChild;
+         console.log(con2);     //"111"
+
+         //获取所有标签节点
+
+         var nodes=document.getElementsByTagName('*');
+
+
+12. 节点属性
+
+    * setAttribute('attribute','value');
+
+    * getAtrribute('attribute');
+
+    * removeAttribute('attribute');
+
+    >属性名不区分大小写
+
+    >根据HTML5规范，自定义属性应该加上 data- 作为前缀。如下
+
+        <div id="div05" data-user-name="lzhan"></div>
+        var div=document.getElementById('div05');
+
+        //访问采用驼峰法
+
+        var v=div.dataset.userName;
+        console.log(v);
+
+13. DocumentFragment
+
+    >使用DocumentFragment将一批子元素添加到任何类似node的父节点上，对这批子元素的操作
+    不需要一个真正的根节点。程序员可以不依赖可见的DOM来构造一个DOM结构，而效率高是它真正的优势，
+    试验表明，它比直接操作DOM快70%。下面我们就来看看DocumentFragments是如何使用的！
+
+    案例：
+
+        <ul id="list"></ul>
+
+    >DOM插入和修改是一个很费力耗时的工作，所以，这样的交互越少越好。这就是DocumentFragment
+    发挥功用的地方了。第一步我们先创建一个DocumentFragment：
+
+        var frag = document.createDocumentFragment();
+        for(var x = 0; x < 10; x++) {
+        	var li = document.createElement("li");
+        	li.innerHTML = "List item " + x;
+        	frag.appendChild(li);
+        }
+        listNode.appendChild(frag);
+
+    >使用DocumentFragement要比直接对DOM节点操作要快的多，而且程序员可以利用新DOM节
+    点来操作DocumentFragement，这样比操作整个页面DOM要更容易。所以，当需要进行大量DOM
+    操作时，尽量使用DocumentFragement，它会让你的应用变的更快！
+
+14. 动态脚本
+
+    动态脚本，指文档加载时脚本不存在，当需要时动态加入。计入主要有两种方式
+    动态引入和动态插入JS代码
+
+    比如：
+
+        <script type="text/javascript" src="js/main.js"></script>
+            //相当于
+        var script=document.createElement('script');
+        script.type='text/javascript';
+        script.src='js/main.js';
+        document.body.appendChild(script);
+
+    如果采用动态插入JS代码
+
+        script.text="function show(){alert('hello');}"
+
+        //为了兼容所有浏览器可以这样
+
+        var code="function show(){alert('hello');}";
+        try{
+            script.appendChild(document.createTextNode(code));
+        }catch(e){
+            script.text=code;
+        }
+        document.body.appendChild(script);
+
+15. 动态样式
+
+        var link=document.createElement('link');
+        link.rel='stylesheet';
+        link.type="text/css";
+        link.href="css/main.css";
+        var head=document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+
+     改进：
+
+        function loadCss(cssfile){
+
+            var link=document.createElement('link');
+            link.rel='stylesheet';
+            link.type="text/css";
+            link.href=cssfile;
+            var head=document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+     动态插入CSS代码
+
+        function loadCssCode(csscode){
+            var link=document.createElement('link');
+            link.rel='stylesheet';
+            link.type="text/css";
+            try{
+                style.appendChild(document.createTextNode(csscode));
+            }catch(e){
+                style.styleSheet.cssText=csscode;
+            };
+            var head=document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+DOM扩展
+=====
