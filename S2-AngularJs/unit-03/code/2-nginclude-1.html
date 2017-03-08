@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>include</title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="SomeController">
+    <div ng-include="'temp_view.html'"
+         ng-init="data='haha'"
+    >
+
+    </div>
+
+    <div ng-bind-template="{{data}}{{user}}"></div>
+
+<script>
+    angular.module('myApp', [])
+        .controller('SomeController', function($scope) {
+            $scope.data='hello template';
+            $scope.user='tom';
+        })
+
+</script>
+</body>
+</html>

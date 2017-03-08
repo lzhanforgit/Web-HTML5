@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngselect</title>
+    <script src="js/angular.js"></script>
+
+    <style>
+        input.ng-invalid {
+            border: 1px solid red;
+        }
+        input.ng-valid {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+
+
+<div ng-controller="CityController">
+    <select ng-model="city"
+            ng-options="city.name for city in cities">
+        <option value="">Choose City</option>
+    </select>
+    Best City: {{ city.name }}
+</div>
+
+<script>
+    angular.module('myApp',[])
+        .controller('CityController',function($scope) {
+            $scope.cities = [
+                {name: 'Seattle'},
+                {name: 'San Francisco'},
+                {name: 'Chicago'},
+                {name: 'New York'},
+                {name: 'Boston'}
+            ]; });
+</script>
+
+</body>
+</html>
