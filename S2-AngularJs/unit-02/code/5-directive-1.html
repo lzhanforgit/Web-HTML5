@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+</head>
+<body>
+
+
+
+<div ng-app="myApp" >
+    <div ng-controller="ctrl_login">
+        <!--标签-->
+        <!--<test-angular-js></test-angular-js>-->
+        <!--类-->
+        <!--<div class="test-angular-js"></div>-->
+        <!--属性-->
+        <!--<div test-angular-js></div>-->
+        <!--注释-->
+
+        <!-- directive:test-angular-js -->
+
+        <test-angular-js></test-angular-js>
+    </div>
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ctrl_login', function($scope) {
+        //所赋的value必须满足表单的验证规则
+        $scope.userid= "John";
+        $scope.result=[
+            {id:'001',name:'tom'},
+            {id:'002',name:'rose'},
+            {id:'003',name:'tony'}
+        ]
+
+    });
+    app.directive("testAngularJs", function() {
+        return {
+            restrict : "AEM",
+            replace  : true,
+            template : "<ul><li ng-repeat='value in result '>{{value.name}}</li></ul>"
+        };
+    });
+
+</script>
+
+</body>
+</html>

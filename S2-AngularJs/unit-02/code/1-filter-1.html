@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="firstApp" ng-controller="myCtrl">
+        <input type="text" ng-model="txtSearch" required>
+        <div style="width: 500px;height: 300px;margin: auto;border: solid 1px grey">
+            <table style="width: 100%;height: 100%">
+
+                <tr style="font-size: 20px">
+                    <th>id</th>
+                    <th>name</th>
+                    <th ng-click="getData();column='address';desc=!desc">address</th>
+                    <th>birthday</th>
+                </tr>
+                <!--<tr ng-repeat="res in result  | orderBy:'money' | filter:txtSearch">-->
+                <tr ng-repeat="res in result_page  | orderBy:column:desc  |filter:{name:txtSearch} ">
+                    <td>{{res.id}}</td>
+                    <td>{{res.name  |limitTo:5}}</td>
+                    <td>{{res.address}}</td>
+                    <td>{{res.status_str| date:'shortDate'}}</td>
+                </tr>
+            </table>
+            <div>
+                首页
+                <span ng-repeat="index in index_a">
+                    <a href="javascript:void(0)" ng-click="load_page(index,pageItemCount)">{{index}}</a>
+                </span>
+                末页
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('firstApp', []);
+        app.controller('myCtrl', function($scope,$http) {
+            $scope.getData=function () {
+                $http.get("persons.json")
+                    .success(
+                        function (result) {
+                            $scope.result=result;
+//                            分页
+                            $scope.pageItemCount=3;
+                            $scope.pageCurrentIndex=1;
+//                            console.log('*****'+$scope.result)
+                            $scope.pageCount=Math.ceil($scope.result.length/$scope.pageItemCount);
+                            $scope.index_a=[];
+                            for(var i=0;i<$scope.pageCount;i++){
+                                $scope.index_a.push(i+1);
+                            }
+                            $scope.load_page( $scope.pageCurrentIndex,$scope.pageItemCount);
+
+                        }
+                    );
+
+            };
+
+//            $scope.result[0].money=$filter('currency')($scope.result[0].money);
+            $scope.getData();
+            $scope.column='address';
+            $scope.desc=false;
+            $scope.result_page=[];
+
+//            函数实现分页
+            $scope.load_page=function (index,count) {
+//                (index-1)*count----> index*count-1
+                $scope.result_page=$scope.result.slice((index-1)*count,index*count);
+                console.log($scope.result_page);
+            };
+//              自定义过滤器实现分页
+
+
+
+
+        });
+        app.filter('fenye',function () {
+            return function (input) {
+//                $scope.result=
+
+            }
+        });
+    </script>
+</body>
+</html>

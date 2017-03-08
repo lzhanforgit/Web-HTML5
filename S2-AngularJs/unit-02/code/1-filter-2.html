@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="firstApp" ng-controller="myCtrl">
+        <input type="text" ng-model="txtSearch" required>
+        <div style="width: 500px;height: 300px;margin: auto;border: solid 1px grey">
+            <table style="width: 100%;height: 100%">
+
+                <tr style="font-size: 20px">
+                    <th>id</th>
+                    <th>name</th>
+                    <th>address</th>
+                    <th>birthday</th>
+                </tr>
+                <!--<tr ng-repeat="res in result  | orderBy:'money' | filter:txtSearch">-->
+                <tr ng-repeat="res in result |fenye:pageCurrentIndex:pageItemCount ">
+                    <td>{{res.id}}</td>
+                    <td>{{res.name}}</td>
+                    <td>{{res.address}}</td>
+                    <td>{{res.status_str| date:'shortDate'}}</td>
+                </tr>
+            </table>
+            <div>
+                首页
+                <span ng-repeat="index in index_a">
+                    <a href="javascript:void(0)" ng-click="change(index)">{{index}}</a>
+                </span>
+                末页
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('firstApp', []);
+        app.controller('myCtrl', function($scope,$http) {
+            $scope.getData=function () {
+                $http.get("persons.json")
+                    .success(
+                        function (result) {
+                            $scope.result=result;
+//                            分页
+                            $scope.pageItemCount=3;
+                            $scope.pageCurrentIndex=1;
+//                            console.log('*****'+$scope.result)
+                            $scope.pageCount=Math.ceil($scope.result.length/$scope.pageItemCount);
+                            $scope.index_a=[];
+                            for(var i=0;i<$scope.pageCount;i++){
+                                $scope.index_a.push(i+1);
+                            }
+
+                        }
+                    );
+
+            };
+
+            $scope.getData();
+            $scope.column='address';
+            $scope.desc=false;
+            $scope.change=function (index) {
+                $scope.pageCurrentIndex=index;
+            }
+
+
+        });
+//        end controller
+
+        app.filter('fenye',function () {
+            return function (input,i,count) {
+                return input.slice((i-1)*count,i*count);
+            }
+        })
+    </script>
+</body>
+</html>

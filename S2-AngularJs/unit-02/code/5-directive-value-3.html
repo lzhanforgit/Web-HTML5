@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>用表达式申明指令-1</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+
+
+<div ng-app="myApp"  ng-controller="ctrl_login">
+    <input type="text" ng-model="linkT">
+    <div directive-link my-url="www.baidu.com" link-other="linkT">
+
+    </div>
+    {{linkT}}
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ctrl_login', function($scope) {
+
+    });
+//    <!--方式一-->
+//    app.directive("directiveLink", function() {
+//        return {
+//            restrict : "AEM",
+//            replace  : true,
+//            template : "<a href='{{hrefUrl}}'>{{linkTexts}}</a>"
+//        };
+//    });
+
+    app.directive("directiveLink", function() {
+
+        return {
+            restrict : "A",
+            replace  : true,
+            scope: {
+                hrefUrl: '@myUrl',
+                linkTexts: '=linkOther'  },
+            template : "<a href='{{hrefUrl}}'>{{linkTexts}}</a>"
+        };
+    });
+
+</script>
+
+</body>
+</html>

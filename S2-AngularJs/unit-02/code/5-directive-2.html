@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="demo" ng-controller="DemoController">
+    <form name="form" >
+        Model value : <input type="text" size="3" ng-model="rating"><br>
+        Min value: <input type="text" size="3" ng-model="minRating"><br>
+        Max value: <input type="text" size="3" ng-model="maxRating"><br>
+        Form has been modified : {{ form.$dirty }}<br>
+        Form is valid : {{ form.$valid }}
+        <hr>
+        <div min="minRating" max="maxRating"  ng-model="rating" rn-stepper>here...</div>
+
+        <rn-stepper ng-model="maxRating"> </rn-stepper>
+    </form>
+    <script>
+        angular.module('demo', ['revolunet.stepper'])
+                .controller('DemoController', function($scope) {
+                    $scope.rating = 42;
+                    $scope.minRating = 40;
+                    $scope.maxRating = 50;
+                });
+
+
+        angular.module('revolunet.stepper', [])
+        // stage 1-----------------
+        // declare our naïve directive
+                /*
+                .directive('rnStepper', function() {
+                    return {
+                        // can be used as attribute or element
+                        restrict: 'AE',
+                        // which markup this directive generates
+                        template: '<button>-</button>' +
+                        '<div>0</div>' +
+                        '<button>+</button>'
+                    };
+                });
+        */
+        // stage 2-----------------
+                /*
+                .directive('rnStepper', function() {
+                    return {
+                        restrict: 'AE',
+
+                        // declare the directive scope as private (and empty)
+
+//              我们在scope中添加了一组键值对，这样，会自动建立内部变量value与外部属性ngModel的联系。
+//              这里的=代表的意思是双向绑定（double data-binding）。
+                        scope: {
+                            values: '=ngModel'
+                        },
+
+                        // add behaviour to our buttons and use a variable value
+                        template:
+                        '<button ng-click="decrement()">-</button>' +
+                        '<div>{{values}}</div>' +
+                        '<button ng-click="increment()">+</button>',
+
+                        // this function is called on each rn-stepper instance initialisation
+                        // we just declare what we need in the above template
+                        link: function(scope, iElement, iAttrs) {
+                            scope.values = 0;
+                            scope.increment = function() {
+                                scope.values++;
+                            };
+                            scope.decrement = function() {
+                                scope.values--;
+                            };
+                        }
+                    };
+                });
+                */
+        // stage 3-----------------
+                .directive('rnStepper', function() {
+                    return {
+                        restrict: 'AE',
+
+                        template:
+                        '<button ng-click="decrement()">-</button>' +
+                        '<div>{{__value}}</div>' +
+                        '<button ng-click="increment()">+</button>',
+                        scope: {},
+                        require: 'ngModel',
+                        link: function(scope, iElement, iAttrs, ngModelController) {
+                            ngModelController.$render = function() {
+                                iElement.find('div').text(ngModelController.$viewValue);
+                            };
+
+                            function updateModel(offset) {
+                                ngModelController.$setViewValue(ngModelController.$viewValue + offset);
+                                ngModelController.$render();
+                            }
+
+                            scope.decrement = function() {
+                                updateModel(-1);
+                            };
+                            scope.increment = function() {
+                                updateModel(+1);
+                            };
+                        }
+                    };
+                });
+
+    </script>
+</body>
+</html>

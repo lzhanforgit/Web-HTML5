@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+
+<div ng-app="myApp">
+
+    <div ng-controller="ctrl_content">
+        <input type="button" value="价格" ng-click="sort_price()">
+        <input type="text" ng-model="txtSearch">
+        <div style="width: 500px;height: 300px;margin: auto;border: solid 1px grey">
+            <table style="width: 100%;height: 100%">
+
+                <tr style="font-size: 20px">
+                    <th ng-click="sortBy('id')">id</th>
+                    <th ng-click="sortBy('name')">name</th>
+                    <th ng-click="col='money';desc=!desc">money</th>
+                    <th ng-click="col='birthday';desc=!desc">birthday</th>
+                </tr>
+                <!--<tr ng-repeat="res in result  | orderBy:'money' | filter:txtSearch">-->
+                <tr ng-repeat="res in result  | orderBy:col:desc | filter:txtSearch">
+                    <td>{{res.id}}</td>
+                    <td>{{res.name | uppercase |limitTo:5}}</td>
+                    <td>{{res.money | number:3}}</td>
+                    <td>{{res.birthday | date}}</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            {{result | odditems}}
+        </div>
+
+        <!--模板-->
+
+        <div ng-include="'module01.html'"></div>
+    </div>
+</div>
+
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.filter('odditems', function () {
+        return function (inputArray) {
+            var array = [];
+            for (var i = 0; i < inputArray.length; i++) {
+                if (i % 2 !== 0) {
+                    array.push(inputArray[i]);
+                }
+            }
+            return array;
+        }
+    });
+    app.controller('ctrl_content', function ($scope, $rootScope, $filter) {
+        //所赋的value必须满足表单的验证规则
+//        $scope.userid= "John";
+
+            $scope.data='我是来自控制器中data变量的内容';
+
+
+
+        $scope.result =
+                [
+                    {id: '001', name: 'tom', money: 2000, birthday: '2000/2/1'},
+                    {id: '002', name: 'rose', money: 30000, birthday: '2004/5/1'},
+                    {id: '003', name: 'zhangdong', money: 4500, birthday: '1992/2/1'},
+                    {id: '004', name: 'wangsha', money: 320, birthday: '1998/7/1'},
+                    {id: '005', name: 'li', money: 3100, birthday: '1992/11/4'},
+                    {id: '006', name: 'han', money: 1000000, birthday: '1997/2/1'},
+                    {id: '007', name: 'lu', money: 28000, birthday: '1990/9/1'},
+                    {id: '008', name: 'yang', money: 2100, birthday: '1994/2/1'},
+                    {id: '009', name: 'zhao', money: 110, birthday: '1999/2/1'},
+                    {id: '0010', name: 'liu', money: 10, birthday: '1999/1/1'},
+                    {id: '0011', name: 'wangni', money: 1200000, birthday: 12}
+                ];
+//        $scope.price = $filter('currency')(12000);
+        $scope.sortBy = function (attr) {
+//
+            $scope.col = attr;
+            $scope.desc = !$scope.desc;
+        };
+
+
+        $scope.col = 'name';//默认按name列排序
+        $scope.desc = 0;//默认排序条件升序
+
+    });
+</script>
+
+
+</body>
+</html>

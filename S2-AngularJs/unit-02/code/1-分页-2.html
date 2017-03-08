@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="map_ctrl">
+
+<table class="table table-striped" style="margin: 0px;">
+    <thead>
+    <tr>
+        <td>选择</td>
+        <td>企业名称</td>
+        <td>企业地址</td>
+        <td>状态</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="l in pages">
+        <td><input type="radio" name="id" ng-click="select(l.id)" value="{{l.id}}" /></td>
+        <td>{{l.name}}</td>
+        <td>{{l.address}}</td>
+        <td>{{l.status_str}}</td>
+    </tr>
+    </tbody>
+</table>
+<!-- paging -->
+<ul class="pagination" style="margin: 0px;" >
+    <li ng-class="{true:'disabled'}[p_current==1]"><a href="javascript:void(0);" ng-click="load_page(1)">首页</a></li>
+    <li ng-repeat="page in p_all_page" ng-class="{true:'active'}[p_current==page]"><a href="javascript:void(0);" ng-click="load_page(page)">{{ page }}</a></li>
+    <li ng-class="{true:'disabled'}[p_current==p_all_page]"><a href="javascript:void(0);" ng-click="load_page(lastPage)">尾页</a></li>
+</ul>
+<span style="vertical-align: 12px;">  共：{{count}} 条</span>
+
+
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("map_ctrl",function($scope,$http,$location){
+        //配置
+        $scope.count = 0;
+        $scope.p_pernum = 3;
+        //变量
+        $scope.p_current = 1;
+        $scope.p_all_page =[];
+        $scope.pages = [];
+        $scope.list=[];
+        //获取数据
+
+        $http.get("person.json").success(function(res){
+            $scope.list=res;
+            $scope.count =res.length;
+            var len=Math.ceil($scope.count/$scope.p_pernum);
+            for(var i=1;i<len+1;i++){
+                $scope.p_all_page.push(i);
+            }
+//            最后一页
+            $scope.lastPage=i-1;
+
+            $scope.pages=$scope.list.slice(($scope.p_current-1)*$scope.p_pernum,$scope.p_current*$scope.p_pernum);
+        });
+
+
+        //单选按钮选中
+        $scope.select= function(id){
+            alert(id);
+        }
+        //加载某一页
+        $scope.load_page = function(page){
+            $scope.p_current=page;
+            console.log($scope.p_current);
+            $scope.pages=$scope.list.slice(($scope.p_current-1)*$scope.p_pernum,$scope.p_current*$scope.p_pernum);
+
+        };
+    });
+
+
+</script>
+
+
+</body>
+</html>

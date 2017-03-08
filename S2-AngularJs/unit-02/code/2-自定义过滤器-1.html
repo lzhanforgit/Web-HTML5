@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="firstApp" ng-controller="myCtrl">
+        <input type="text" ng-model="txtSearch">
+        <div style="width: 500px;height: 300px;margin: auto;border: solid 1px grey">
+            <table style="width: 100%;height: 100%">
+
+                <tr style="font-size: 20px">
+                    <th>id</th>
+                    <th>name</th>
+                    <th>money</th>
+                    <th>birthday</th>
+                </tr>
+                <!--<tr ng-repeat="res in result  | orderBy:'money' | filter:txtSearch">-->
+                <tr ng-repeat="res in result  | orderBy:col:desc  |filter:{name:txtSearch} ">
+                    <td>{{res.id}}</td>
+                    <td>name:{{res.name | toUpper |limitTo:3}}</td>
+                    <td>{{res.money | number:3}}</td>
+                    <td>{{res.birthday| date:'medium'}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('firstApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.result =
+                [
+                    {id: '001', name: 'tom', money: 2000, birthday: new Date()},
+                    {id: '002', name: 'rose', money: 30000, birthday: new Date('1992/8/1')},
+                    {id: '003', name: 'zhangdong', money: 4500, birthday: '1992/2/1'},
+                    {id: '004', name: 'wangsha', money: 320, birthday: '1998/7/1'},
+                    {id: '005', name: 'li', money: 3100, birthday: '1992/11/4'},
+                    {id: '006', name: 'han', money: 1000000, birthday: '1997/2/1'},
+                    {id: '007', name: 'lu', money: 28000, birthday: '1990/9/1'},
+                    {id: '008', name: 'yang', money: 2100, birthday: '1994/2/1'},
+                    {id: '009', name: 'zhao', money: 110, birthday: '1999/2/1'},
+                    {id: '0010', name: 'liu', money: 10, birthday: '1999/1/1'},
+                    {id: '0011', name: 'wangni', money: 1200000, birthday: 12}
+                ];
+        });
+        app.filter('toUpper',function () {
+            return function (input) {
+                return input[0].toUpperCase()+input.slice(1);
+            }
+        })
+        app.filter('likeSearch',function () {
+            return function (input) {
+                return input[0].toUpperCase()+input.slice(1);
+            }
+        })
+    </script>
+</body>
+</html>

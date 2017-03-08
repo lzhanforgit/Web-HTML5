@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngmessages-template</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/bower-angular-messages-master/angular-messages.js"></script>
+</head>
+<body ng-app="myApp">
+<form name="signup_form" novalidate ng-submit="signupForm()" ng-controller="myCtrl">
+    <label>Your name</label>
+    <input type="text" placeholder="Name" name="name" ng-model="signup.name" ng-minlength=
+            3 ng-maxlength=20 required />
+    <div ng-messages="signup_form.name.$error">
+        <ng-messages-include src="error-template.html"></ng-messages-include>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<script>
+    var app = angular.module('myApp', ['ngMessages']);
+    app.controller('myCtrl', function($scope) {
+        $scope.userName='lzhan';
+    });
+</script>
+</body>
+</html>
