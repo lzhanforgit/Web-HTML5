@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+    <div ng-app="firstApp" ng-controller="myCtrl">
+        <input type="text" id="txtUserName" ng-model="userName">
+        <p ng-bind="userName"></p>
+        <p>{{id}}</p>
+    </div>
+
+    <!--<div ng-app="secondApp" ng-controller="myCtrl2">-->
+        <!--<input type="text" ng-model="userName">-->
+        <!--<p ng-bind="userName"></p>-->
+    <!--</div>-->
+
+    <script>
+        var app = angular.module('firstApp', []);
+//        console.log(app);
+//        app.run(function ($rootScope) {
+//            console.log('here');
+////            $rootScope.userName='tom';
+//        })
+        app.controller('myCtrl',['$scope',function(s) {
+            console.log('there');
+
+        }]);
+
+//        var app2 = angular.module('secondApp', []);
+//        app2.controller('myCtrl2',['$scope',function(s) {
+//            s.userName='nzhan';
+//        }]);
+//
+//        angular.element(document).ready(function () {
+//            var f=angular.bootstrap(document,['firstApp','secondApp']);
+//            console.log(f);
+//        })
+
+
+    </script>
+</body>
+</html>

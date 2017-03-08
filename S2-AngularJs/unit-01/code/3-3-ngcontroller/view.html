@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/angular.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+
+<div ng-app="firstApp">
+    <div id="div01" ng-controller="myCtrl1">
+        <input type="text" ng-model="person.userName">
+        <p>这是DIV01的内容</p>
+        <p ng-bind="person.userName"></p>
+        <div id="div02" ng-controller="myCtrl2">
+
+            <p>
+                这里DIV02的内容：
+            </p>
+            <input type="text" ng-model="person.userName">
+            <p>name:{{person.userName}}</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

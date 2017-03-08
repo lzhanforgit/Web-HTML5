@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.js"></script>
+
+</head>
+<body>
+
+    <div ng-app="firstApp">
+        <div>
+            <p>现在时间是: {{time}}</p>
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module('firstApp', []);
+        app.run(['$rootScope','$timeout',function(s,t) {
+            var updateTime=function () {
+                s.time=new Date();
+                t(function () {
+                    updateTime();
+                },1000);
+            }
+            updateTime();
+        }]);
+        function myCtrl1($scope,$timeout) {
+
+        }
+
+    </script>
+</body>
+</html>

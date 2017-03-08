@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="firstApp" ng-controller="myCtrl">
+        <input type="text" ng-model=" $scope.userName">
+        <!--<p ng-cloak>{{userName}}{{userId}}</p>-->
+        <p ng-bind-template="{{userName}}{{userId}}"></p>
+    </div>
+
+    <script>
+        var app = angular.module('firstApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.userName='lzhan';
+            $scope.userId='0001';
+        });
+    </script>
+</body>
+</html>

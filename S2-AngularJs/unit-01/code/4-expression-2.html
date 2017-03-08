@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+<div ng-app="myApp" >
+    <div ng-controller="myCtrl">
+        <!--在textarea文本中输入{{to}}就可以引用文本框中的内容了-->
+        <input type="text" ng-model="emailTo">
+        <br>
+        <textarea name="email_content" ng-model="emailContent" id="txt_emailContent" cols="30" rows="10">
+            </textarea>
+        <br>
+        邮件预览:
+        <br>
+        <textarea  ng-bind="previewEmail"  cols="30" rows="10">
+            </textarea>
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope,$interpolate) {
+        $scope.emailTo='lzhan@163.com';
+        $scope.$watch('emailContent',function (body) {
+            if(body){
+                var template=$interpolate(body);
+                $scope.previewEmail=template({to:$scope.emailTo});
+            }
+        })
+    });
+
+</script>
+</body>
+</html>

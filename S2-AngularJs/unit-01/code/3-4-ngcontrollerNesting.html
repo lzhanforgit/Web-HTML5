@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.js"></script>
+
+</head>
+<body>
+
+    <div ng-app="myApp">
+        <div ng-controller="myCtrl1">
+            <div id="div02" ng-controller="myCtrl2">
+                <button ng-click="display()">我是谁？？</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl1',['$scope','$rootScope',function(s,r) {
+            s.person={name:'lzhan'};
+        }]);
+        app.controller('myCtrl2',['$scope',function(s) {
+            s.display=function () {
+
+                alert(s.person.name);
+                $('button').text('show me');
+            }
+        }]);
+
+    </script>
+</body>
+</html>

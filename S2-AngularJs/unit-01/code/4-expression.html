@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+<div ng-app="myApp" >
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="txt_value">
+        <input type="button" value="add" ng-model="txt_value" ng-click="txt_value=txt_value+1">
+        value:{{txt_value}}
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope,$parse) {
+       $scope.txt_value=1;
+    });
+
+</script>
+</body>
+</html>
