@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content{
+            border:5px solid blue;
+            overflow: hidden;
+        }
+        #leftpanel{
+            background-color: lightblue;
+            width: 300px;
+            float: left;
+            padding-bottom: 3000px;
+            margin-bottom: -3000px;
+        }
+        #right{padding-left: 300px;}
+        #rightpanel{
+            padding-bottom: 3000px;
+            margin-bottom: -3000px;
+        }
+        .date{
+            font-size: 12px;
+            color:#999;
+        }
+        .content{
+            background-color: lightyellow;
+        }
+        #container{
+            margin: 10px;
+        }
+    </style>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular-route/angular-route.min.js"></script>
+    <script src="app.module.js"></script>
+    <!--<script src="services/services.module.js"></script>-->
+
+    <script src="services/news/news.module.js"></script>
+    <script src="services/news/news.service.js"></script>
+
+    <script src="listcontroller.js"></script>
+
+</head>
+<body>
+<div ng-app="NewsPub">
+    <!--<script type="text/ng-template" id="list.html">-->
+        <!--<table width="100%" border="1" style="border-collapse:collapse;">-->
+            <!--<thead>-->
+            <!--<td>id</td>-->
+            <!--<td>标题</td>-->
+            <!--<td>内容</td>-->
+            <!--<td>发布时间</td>-->
+            <!--</thead>-->
+            <!--<tr ng-repeat="news in newsList">-->
+                <!--<td>{{news.id}}</td>-->
+                <!--<td><a href='#/detail/{{news.id}}'>{{news.title}}</a></td>-->
+                <!--<td>{{news.content}}</td>-->
+                <!--<td>{{news.date}}</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</script>-->
+
+    <script type="text/ng-template" id="add.html">
+        <h1>添加新闻</h1>
+        标题：<input type="text" ng-model="title"><br>
+        内容：<textarea ng-model="content" cols="30" rows="10" style="vertical-align:top;"></textarea><br>
+        <button ng-click="add()">提交</button>
+    </script>
+
+    <script type="text/ng-template" id="edit.html">
+        <h1>编辑新闻{{news.id}}</h1>
+        标题：<input type="text" ng-model="news.title"><br>
+        内容：<textarea ng-model="news.content" cols="30" rows="10" style="vertical-align:top;"></textarea><br>
+        <button ng-click="update()">提交</button>
+    </script>
+
+    <script type="text/ng-template" id="detail.html">
+        <a href="#/list">返回列表</a>
+        <div id="container">
+            <a href="#/edit/{{news.id}}">编辑</a>
+            <h1>{{news.title}}</h1>
+            <span class="date">发布日期：{{news.date}}</span>
+            <div class="content">正文：   {{news.content}}</div>
+        </div>
+    </script>
+
+    <h1>新闻发布系统</h1>
+    <div id="content">
+        <div id="leftpanel">
+            <ul>
+                <li><a href="#/list.template.html">新闻列表</a></li>
+                <li><a href="#/add">发布新闻</a></li>
+            </ul>
+        </div>
+        <div id="right">
+            <div id="rightpanel" ng-view></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

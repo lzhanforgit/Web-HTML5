@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础内置指令</title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="SomeController">
+    {{ someBareValue.data }}
+    <button ng-click="someAction()">Communicate to child</button>
+    <div ng-controller="ChildController">
+        {{ someBareValue.data }}
+        <button ng-click="childAction()">Communicate to parent</button>
+    </div>
+</div>
+<script>
+    angular.module('myApp', [])
+        .controller('SomeController', function($scope) {
+            $scope.someBareValue = {data:'hello computer'};
+            $scope.someAction = function() {
+                $scope.someBareValue.data = 'hello human, from parent';
+            };
+        })
+        .controller('ChildController', function($scope) {
+            $scope.childAction = function() {
+                $scope.someBareValue.data = '哈哈哈';
+            };
+        });
+</script>
+</body>
+</html>
