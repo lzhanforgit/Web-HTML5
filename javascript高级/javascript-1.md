@@ -212,6 +212,8 @@
 		console.log(Person.prototype.constructor);
 		//判断对象实例是否属于类
 		console.log(Person.prototype.isPrototypeOf(per01));
+
+
 		//有缺陷，当原型继承时constructor指向父类
 		console.log(per01.constructor==Person);
 		console.log( s instanceof Student);
@@ -225,9 +227,12 @@
 		
 	>获取对象实例属性
 	
+
+		//获取所有对象实例属性
 		var k=Object.keys(Person.prototype);
-		//获取所有对象实例属性，无论该属性是否可以枚举
 		var ks=Object.getOwnPropertyNames(per01);
+
+
 	>查看属性（包括对象实例属性和对象原型熟悉），可以用 for( var k in obj),也可以用in
 	
 		console.log('name' in per01);
