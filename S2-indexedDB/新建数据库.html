@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建数据库</title>
+    <style>
+        input {
+            width: 150px;
+            height: 50px;
+            background-color: grey;
+        }
+    </style>
+    <script>
+
+
+        window.onload = function () {
+            var db;
+            if (window.indexedDB) {
+                var re = indexedDB.open('zhaopin', 1);
+                re.onerror = function (event) {
+                    alert('构建数据库失败！' + event.target.errorCode);
+                };
+//            数据库的初始化事件
+                re.onupgradeneeded = function (ev) { //onupgradeneeded
+                    db = re.result;
+                    if (db.objectStoreNames.contains('user')) {
+                        db.deleteObjectStore('user');
+                    }
+
+//                {id:'001',userId:'hr003',password:'123456',sex:'1',city:'苏州'}
+                    var store = db.createObjectStore("user", {keyPath: "id"});
+                    var userIdIndex = store.createIndex("index_userId", "userId", {unique: true});
+                    var cityIndex = store.createIndex("index_city", "city");
+                    store.add({id: '001', userId: 'hr003', password: '123456', sex: '1', city: '苏州'});
+                    store.add({id: '002', userId: 'hr002', password: '88888', sex: '1', city: '苏州', province: '江苏'});
+                    if (db.objectStoreNames.contains('sex')) {
+                        db.deleteObjectStore('sex');
+                    }
+
+                    var sexStore = db.createObjectStore("sex", {keyPath: "id"});
+                    sexStore.add({id: 1, name: '男'});
+                    sexStore.add({id: 2, name: '女'});
+                }
+                re.onsuccess = function () {
+                    console.log('success...');
+                    db = re.result;
+                }
+
+            }
+            else {
+                alert('你的浏览器不支持indexedDB,请升级到最新版本！');
+            }
+            document.querySelector('#delDatabase').onclick = function () {
+                if (window.indexedDB) {
+                    indexedDB.deleteDatabase('zhaopin');
+                }
+            };
+
+            document.querySelector('#insertData').onclick = function () {
+                console.log('here....');
+                var tx = db.transaction("user", "readwrite");
+                var store = tx.objectStore("user");
+                var req = store.add({
+                    id: '004',
+                    userId: 'hr004',
+                    password: '777777',
+                    sex: '1',
+                    city: '苏州',
+                    province: '江苏'
+                });
+                req.onsuccess = function () {
+                    alert('插入成功');
+                }
+            };
+            document.querySelector('#editData').onclick = function () {
+                var tx = db.transaction("user", "readwrite");
+                var store = tx.objectStore("user");
+//                var req=store.get('004');
+//                req.onsuccess=function () {
+//                    var person=req.result;
+//                    person.userId='hr888';
+//
+//                    var req02=store.put(person);
+//
+//                    req02.onsuccess=function () {
+//                        alert('更新成功');
+//                    }
+//
+//                }
+
+                store.get('004').onsuccess = function (e) {
+//                    this==e.target
+                    var person = this.result;
+                    person.userId = 'hr999';
+
+                    store.put(person).onsuccess = function () {
+                        alert('更新成功');
+                    }
+                }
+
+
+            };
+
+            document.querySelector('#delData').onclick = function () {
+
+                var tx = db.transaction("user", "readwrite");
+                var store = tx.objectStore("user");
+//                store.delete('002').onsuccess=function () {
+//                    alert('删除成功');
+//                }
+                store.clear().onsuccess = function () {
+                    alert('清空成功');
+                };
+            };
+            document.querySelector('#searchData').onclick = function () {
+                var con = document.querySelector('#txtSearch').value;
+                var tx = db.transaction("user", "readwrite");
+                var store = tx.objectStore("user");
+
+//                var req=store.get(con);  //get(主键)
+                var req = store.index('index_city').get(con);  //get(主键)
+                req.onsuccess = function () {
+                    var res = req.result;
+                    document.querySelector('#searchRes').innerHTML = JSON.stringify(res);
+                }
+            }
+
+            document.querySelector('#searchAllData').onclick = function () {
+                var con = document.querySelector('#txtSearch').value;
+                var tx = db.transaction("user", "readwrite");
+                var store = tx.objectStore("user");
+                var req = store.openCursor();
+                var s ='';
+                req.onsuccess = function (e) {
+                    var cursor = req.result;
+                    if (cursor) {
+                        var person = cursor.value;
+                        var key = cursor.key;
+                        console.log(key);
+                        if(person.city==con){
+                            s = s + JSON.stringify(person);
+                        }
+                        cursor.continue();
+                    }
+                    document.querySelector('#searchRes').innerHTML=s;
+                };
+
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="delDatabase" value="清空缓存">
+<input type="button" id="insertData" value="登录/保存数据">
+<input type="button" id="editData" value="编辑数据">
+<input type="button" id="delData" value="删除数据">
+<br>
+<input type="text" id="txtSearch">
+<input type="button" id="searchData" value="查询数据">
+<input type="button" id="searchAllData" value="查询所有数据">
+
+<div id="searchRes">
+
+</div>
+
+</body>
+</html>

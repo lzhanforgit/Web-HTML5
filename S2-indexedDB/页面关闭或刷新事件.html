@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onbeforeunload   =   function(){
+        var   n=window.event.screenX-window.screenLeft;
+        var   b=n> document.documentElement.scrollWidth-20;
+        if(b && window.event.clientY<0 || window.event.altKey)
+        {
+            console.log('close/go')
+        }else{
+            console.log('fresh');
+        }
+    }
+</script>
+</body>
+</html>
