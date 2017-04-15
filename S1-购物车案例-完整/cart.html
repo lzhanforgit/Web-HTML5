@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="js/ajax.js"></script>
+    <script src="js/cart.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .btn-cash{
+            width: 100px;
+            height: 60px;
+            border: none;
+            background-color: red;
+            font-size: 1.5rem;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="text-danger">全部商品</h3>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped" id="table-cart">
+                <tr>
+                    <td>全选</td>
+                    <td>商品</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>小计</td>
+                    <td>操作</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="" id="chkAll">
+                    全选
+                </label>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 col-lg-4"></div>
+
+
+
+        <div class="col-md-3 col-lg-3">
+            <div class="row">
+                <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label" style="font-size: 2rem;color: #808080">总价</label>
+                    <div class="col-sm-7">
+                        <p class="form-control-static" id="totalPrice" style="font-size: 2rem;color: red"></p>
+                    </div>
+                </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 col-lg-2 text-right">
+            <button class="btn-cash">去结算</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

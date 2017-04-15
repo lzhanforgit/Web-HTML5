@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历节点</title>
+</head>
+<body>
+<div class="container">
+    haha
+    <div class="inner01">
+        <p>001</p>
+        <p>002</p>
+        <p>003</p>
+    </div>
+    <div class="inner02">
+        <table id="allusers">
+            <tr id="user0001">
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button >-</button>
+                    <input type="text" value="1">
+                    <button >+</button>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr id="user0002">
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    <button >-</button>
+                    <input type="text" value="1">
+                    <button >+</button>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload=function () {
+//        childNodes获取直接子节点。包括所有节点
+//        var ps=document.querySelector('.container').childNodes;
+
+//        firstChild 获取第一个直接子节点，包括所有节点
+//        var fch=document.querySelector('.container').firstChild;
+
+//        firstElementChild 获取第一个直接子元素节点
+//        var ps=document.querySelector('.inner01').firstElementChild;
+//         ****lastChild lastElementChild
+
+//        非标准属性，它返回指定元素的子元素集合。只包括元素节点（nodeType:1）
+//        var ps=document.querySelector('.container').children[0].children[1].innerText; //002
+
+//        parentNode 返回指定元素的父元素
+//        var ps=document.querySelector('.inner01').parentNode.className;
+
+//        childElementCount 返回子元素节点的个数
+//        var ps=document.querySelector('.inner01').childElementCount;
+
+//        nextSibling nextElementSibling
+//        var ps=document.querySelector('.inner01').children[0].nextElementSibling;
+
+//        previousSibling previousElementSibling
+//        var ps=document.querySelector('.inner01').children[1].previousElementSibling;
+//        仅适用于表格
+//        var ps=document.querySelector('table').rows[0].cells[1].innerHTML
+        var trs=document.querySelectorAll('#allusers tr');
+        for(var index in trs){
+            trs[index].onclick=trClick;
+        }
+        function trClick(ev) {
+//            console.log(this.getAttribute('id'));
+//            console.log(ev.target.innerHTML);
+            this.cells[0].firstElementChild.checked=true;
+            if(ev.target.innerText==='+'){
+                this.cells[1].children[1].value++;
+            }else if(ev.target.innerText==='-' && this.cells[1].children[1].value>0){
+                this.cells[1].children[1].value--;
+            }
+        }
+    }
+</script>
+</body>
+</html>
