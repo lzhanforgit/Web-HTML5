@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>code-1</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    Object.prototype.address='earth';
+//        var o=new Object();
+//        o.address='earth';
+
+    function Person(s) {
+        this.sex=s;
+
+    }
+
+    Person.prototype.nation='china';
+//    console.log(Person);
+    console.log(Person.prototype);
+
+
+    var person01=new Person('男');
+//    Object.defineProperty(person01,'telephone',{
+//        enumberable:false
+//    })
+    var person02=new Person('女');
+
+//    console.log(person01.constructor==person02.constructor);
+
+//    var pro1=Object.getPrototypeOf(person01);
+//    var pro2=Object.getPrototypeOf(person02);
+//    console.log(pro);
+
+//    console.log(person01 instanceof Person);
+//    console.log(person01 instanceof Object);
+
+    for(var k in person01){
+        if(getPrototypeProperty(person01,k)){
+            console.log(k);
+        }
+    }
+
+    function getPrototypeProperty(obj,attr){
+        return !obj.hasOwnProperty(attr)&& (attr in obj);
+    }
+
+    //
+//    var keys=Object.keys(person01);
+//    console.log(keys);
+</script>
+</body>
+</html>

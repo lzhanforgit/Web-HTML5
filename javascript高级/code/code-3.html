@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>call apply</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        this.age=age;
+        this.name=name;
+    }
+    Person.prototype.show=function () {
+        console.log(this.name);
+    };
+
+
+
+
+    function Student(name,age) {
+        this.school='gem';
+
+        Person.call(this,name,age);
+
+    }
+
+
+    Student.prototype=new Person();
+    var s=new Student('tom',10);
+    var s2=new Student('xiaoming',11);
+
+    console.log(s.constructor);
+
+    s.show();
+
+//    console.log(s.constructor);
+
+
+
+
+</script>
+</body>
+</html>
