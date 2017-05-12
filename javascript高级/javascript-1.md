@@ -103,9 +103,9 @@
 		
 9. 相等操作符
 	
-		undefined==null //true
+		undefined==null     //true
 		NaN==NaN			//false
-		undefined===null //false
+		undefined===null    //false
 		
 10. 异常处理
 
@@ -145,20 +145,21 @@
 10. 循环语句
 
 	for(;;)
+	for(k in arr){}
+
+    label:for(;;)
 	
 	while(){}
 	
 	do{}while()
 	
-	for(k in arr){}
-	
-	label:for(;;)
+
 	
 	break lable 或者 continue label
 11.  arguments
 
 		//  1、arguments对象为伪数组
-		//  2、arguments对象与参数(m,n)内存空间是独立的,但是参数m值依赖arguments[0](保持同步),反之不依赖
+		//  2、arguments对象与参数(m,n)内存空间是独立的
 		//  3、参数传递的永远都是值,不能是引用
 		function add(m,n) {
 		   arguments[1]=10;
@@ -179,10 +180,10 @@
 	
 	>scope chain遍历的顺序是先当前环境对象,然后外层环境。
 	
-13. caller callee
+13. callee
 	
 		function add() {
-    		return arguments.callee.caller;
+    		return arguments.callee;
 		}
 		function getres() {
     		return add();
@@ -201,22 +202,30 @@
 	}
 2. 原型
 
+    ```
 		function Person() {
 	
 		}
 		Person.prototype.name='human';
-		var per01=new Person();
+		var per01=new per01();
 		console.log(Object.getPrototypeOf(per01)==Person.prototype)
 		console.log(Object.getPrototypeOf(per01).name)；
 		//Person.prototype.constructor指向类本身
 		console.log(Person.prototype.constructor);
 		//判断对象实例是否属于类
-		console.log(Person.prototype.isPrototypeOf(per01));
+		console.log(Person.prototype.isPrototypeOf(per01));  //true
 
 
 		//有缺陷，当原型继承时constructor指向父类
+		//****对象本身没有constructor属性,类本身也没有constructor，但是类的原型对象有constructor***
+
+		//constructor属性本身不可枚举，enumberable:false
 		console.log(per01.constructor==Person);
-		console.log( s instanceof Student);
+
+		console.log( per01 instanceof Person);  //true
+		console.log( per01 instanceof Object);  //true
+
+	```
 	
 3. 原型继续
 
@@ -231,6 +240,7 @@
 		//获取所有对象实例属性
 		var k=Object.keys(Person.prototype);
 		var ks=Object.getOwnPropertyNames(per01);
+
 
 
 	>查看属性（包括对象实例属性和对象原型熟悉），可以用 for( var k in obj),也可以用in
@@ -538,7 +548,7 @@
 		// console.log(foo()[1]());
 		console.log(foo());
 		
-5. 闭包和this
+5. 闭包和this( angular 的provider 就是闭包)
 
 	>每个函数被调用时，其活动对象都会自动取得两个特殊变量，arguments和this.内部函数在搜索这俩对象时，只会在其活动对象上搜索，不会访问其外部函数的这两个对象。所以如果内部函数如果需要访问，只能把外部函数中的this赋值给一个变量，如
 	
