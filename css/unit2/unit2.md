@@ -44,6 +44,51 @@
 
     当margin-top,margin-bottom值为百分比时，其相对的值是父块级元素的<b style='color:blue'>width</b>.
 
+4. background
+
+    1. background-position
+
+    该属性默认参考的坐标原点是容器的左上角，但是CSS3新增加了具体的方向设定
+
+        ```
+        background: url(code-pirate.svg) no-repeat #58a;
+        background-position: right 20px bottom 10px;
+        ```
+
+    回退方案
+
+        ```
+        background: url(code-pirate.svg) no-repeat bottom right #58a;
+        background-position: right 20px bottom 10px;
+        ```
+
+    2. background-origin
+
+        >在网页开发生涯中，你很可能多次写过类似 background-position: top left; 这样的代码。你是否曾经有过疑惑:
+         这个 top left 到底是哪 个左上角?你可能知道，每个元素身上都存在三个矩形框: border box(边框的外沿框)、
+         padding box(内边距的外沿框)和 content box
+         (内容区的外沿框)。那 background-position 这个属性指定的到底是哪个 矩形框的左上角?
+
+        >默认情况下，background-position 是以 padding box 为准的，这样边 框才不会遮住背景图片。
+         因此，top left 默认指的是 padding box 的左上 角。不过，在背景与边框(第三版)(http://w3.org/TR/css3-background)中，
+         我们得到了一个新的属性 background-origin，可以用它来改变这种行为。
+         在默认情况下，它的值是(闭着眼睛也猜得到)padding-box。如果把它的 值改成 content-box(参见下面的代码)，
+         我们在 background-position 属 性中使用的边角关键字将会以内容区的边缘作为基准(也就是说，此时背景 图片距离边角的偏移量就跟内边距保持一致了):
+
+         ```
+         padding: 10px;
+         background: url("code-pirate.svg") no-repeat #58a
+         bottom right; /* 或 100% 100% */ background-origin: content-box;
+         ```
+    3. background-clip
+
+        >background-clip：border|padding|content
+
+         该属性指定了背景在哪些区域可以显示，但与背景开始绘制的位置无关，背景的绘制的位置可以出现在不显示背景的区域，这时就相当于背景图片被不显示背景的区域裁剪了一部分一样。
+
+        >background-origin：padding|border|content
+
+         该属性指定了背景从哪个区域(边框、补白或内容)开始绘制,但也仅仅能控制背景开始绘制的位置，你可以用这个属性在边框上绘制背景，但边框上的背景显不显示出来那就要由background-clip来决定了
 4. background-attachment 让背景图像处于可视区的估计位置，不受滚动的影响。
 
     ```
@@ -58,4 +103,86 @@
 
             background-attachment: fixed;
         }
+    ```
+
+5. box-shadow 实现多重边框
+
+    ```
+        //下面代码实现投影
+    box-shadow: 0 0 10px red;
+
+        //下面代码实现边框，注意第四个参数
+    box-shadow: 0 0 0px 40px red;
+
+        //下面代码实现向内部投影
+    box-shadow: 0 0 0px 40px red inset;
+
+        //下面代码实现多重边框
+    box-shadow: 0 0 0px 40px red，
+                0 0 0px 30px green，
+                0 0 0px 20px red;
+    ```
+
+6. border,outline,box-shadow效果
+
+    ```
+    <style>
+            body{
+                background-color: grey;
+
+            }
+
+
+            .div01{
+                width: 200px;
+                height: 100px;
+                background: white;
+                margin-left: 100px;
+                margin-top: 200px;
+                box-shadow: 0 0 0px 4px yellow;
+                border-radius: 10px;
+                /*border: solid 10px red;*/
+                outline: solid 10px yellow;
+
+            }
+
+            .div01:hover{
+                background-color: #00b3ee;
+            }
+    </style>
+    <div class="div01"></div>
+    ```
+7. 背景渐变
+
+    ```
+        //渐变
+        background: linear-gradient(#fb3, #58a);
+        background: linear-gradient(#fb3 20%, #58a 50%);
+        background: linear-gradient(#fb3 20%, #58a 50%,#ffff00 100%);
+    ```
+
+
+    ```
+        //不会渐变，会有色块，因为开始（80%）大于结尾了（20%）
+        background: linear-gradient(#fb3 80%, #58a 20%);
+
+        //重复的色块，因为默认会平铺
+        background: linear-gradient(#ffff00 50%, #682cff 50%);
+        <!--background: linear-gradient(#ffff00 50%, #682cff 0);-->
+        background-size: 100% 30px;
+
+        //三种颜色块变换*******************中间两个色块要相同
+        background: linear-gradient(#ffff00 20%, #682cff 0,#682cff 80%,red 0);
+
+        //45度角变换
+
+        background: repeating-linear-gradient(45deg,#ffff00 0, #ffff00 80px, #c065ff 0,#c065ff 160px);
+
+        //垂直变换 (to right)表示方向
+
+        background: linear-gradient(to right, #fb3 50%, #58a 0);
+        background: linear-gradient(45deg, #fb3 50%, #58a 0);
+        background-size: 30px 100%;
+
+
     ```
