@@ -184,5 +184,71 @@
         background: linear-gradient(45deg, #fb3 50%, #58a 0);
         background-size: 30px 100%;
 
+    ```
+7. 椭圆效果
 
     ```
+    // 椭圆
+
+    border-radus:50%;
+
+    //四个角度简写
+
+    border-radius: 100px 90px 0px 0px;
+
+    border-radius: 左上角 右上角 右下角 左下角;
+
+    //下面代码相当于 100px 50px 100px 50px
+    border-radius: 100px 50px;
+
+
+    //上半圆
+
+    width: 150px;
+    height: 75px;
+    background: red;
+    border-radius: 75px 75px 0px 0px;
+
+    //四分之一圆
+
+     width: 75px;
+     height: 75px;
+     background: red;
+     border-radius: 75px 0px 0px 0px;
+     border-radius: 100% 0 0 0;
+
+     //叶子形状
+     width: 75px;
+     height: 75px;
+     background: red;
+     border-radius: 75px 0px 0px 0px;
+
+
+    ```
+
+8. 菱形图片
+
+    利用变形
+    
+    ```
+    .picture {
+    width: 400px;
+    transform: rotate(45deg);
+    overflow: hidden; }
+    .picture > img { max-width: 100%;
+    transform: rotate(-45deg) scale(1.42); }
+    ```
+    
+    利用裁剪（四组坐标其实就是四个角的坐标）
+    
+    ```
+    img {
+           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0 50%);
+                transition: 1s clip-path;
+            }
+            img:hover {
+                clip-path: polygon(0 0, 100% 0,100% 100%, 0 100%);
+       }
+    ```
+
+
