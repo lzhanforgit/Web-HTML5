@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加图片</title>
+    <style type="text/css">
+        .file{
+            display: block;
+            width: 119px;
+            height: 119px;
+            border: solid 1px grey;
+            position: relative;
+            top: -119px;
+            z-index: 2;
+            opacity: 0;
+
+        }
+        .img_hover{
+            position: relative;
+            top: -244px;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .file:hover+img{
+            opacity: 1;
+        }
+    </style>
+
+
+</head>
+<body>
+        <div>
+            <img src="images/default_headpic.png" alt="" class="default-css" >
+            <input type="file" class="file">
+            <img src="images/mr_headhover.png" alt="" class="img_hover">
+        </div>
+</body>
+</html>
