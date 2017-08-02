@@ -1,3 +1,4 @@
+&copy;詹亮                     - site : https://github.com/lzhanforgit/H5Resources
 #part 1
 1. async
 
@@ -517,16 +518,18 @@
 		function foo(x) {
 	   		 var tmp = 3;
 	   		 return function (y) {
-	        			console.log(x + y + (++tmp));
+                console.log(x + y + (++tmp));
 	   		 }
 		}
-		var bar = foo(2); // bar 现在是一个闭包
+		var bar = foo(2);   // bar 现在是一个闭包
 		bar(10);
 	
 	注意，外部函数不是必需的。通过访问外部变量，一个闭包可以维持（keep alive）这些变量。在内部函数和外部函数的例子中，外部函数可以创建局部变量，并且最终退出；但是，如果任何一个或多个内部函数在它退出后却没有退出，那么内部函数就维持了外部函数的局部数据。这里有利也有弊，当要维持这个数据且保持神秘性的时候，它是有利的；但不需要后续操作时，它浪费内存。
 解决方案：
 		
 		bar=null;
+
+
 		
 4. 闭包和变量
 
