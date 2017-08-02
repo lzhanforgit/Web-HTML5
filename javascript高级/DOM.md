@@ -1,5 +1,5 @@
+&copy;詹亮                     - site : https://github.com/lzhanforgit/H5Resources
 # DOM 
-####2017-7-25  @詹亮
 ### 1. 节点基础
 
 1. 节点类型
