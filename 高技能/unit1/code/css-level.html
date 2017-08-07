@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="网易,邮箱,游戏,新闻,体育,娱乐,女性,亚运,论坛,短信,数码,汽车,手机,财经,科技,相册" />
+    <title>旅游</title>
+
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            height: 600px;
+            background: gainsboro;
+        }
+
+        /*id>class>marup*/
+
+
+        /*
+
+        id:         0,1,0,0
+        class:      0,0,1,0
+        markup::    0,0,0,1
+        inline:     1,0,0,0
+
+        !important
+
+
+        */
+
+
+        /*  0,0,1,1 */
+        .container header{
+            background: grey;
+        }
+
+        /*0,0,0,1*/
+        header{
+            width: 100%;
+            height: 40px;
+            background: #0000ff !important;
+        }
+
+        /*0,1,0,0*/
+        #h01{
+            background: red;
+        }
+
+        /*0,1,1,0*/
+        .container #h01{
+            background: yellow;
+        }
+
+        /* 0,0,1,2 */
+        header div.logo{
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header id="h01" style="background: black">
+            <nav></nav>
+            <div class="logo"></div>
+        </header>
+        <section>
+            <article>
+                <header></header>
+            </article>
+        </section>
+        <aside>
+        </aside>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+</html>

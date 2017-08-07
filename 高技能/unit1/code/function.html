@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<script type="text/javascript">
+    'use strict';
+    // 闭合函数
+//    (function(s) {
+//        console.log('hello '+s)
+//    })('tom')
+
+
+//
+//    function show(a,b) {
+////        arguments[0] ,arguments[1]
+////        arguments[0]=100;
+////        a=101;
+//        var c=a+b;
+//        console.log(arguments[0]);
+//        console.log(a+' : '+b);
+//
+////        console.log(arguments.caller);
+//
+//    }
+
+//    var show=new Function(" console.log(a+' : '+b);");
+
+//    function getShow() {
+//        show(1,1);
+//    }
+//
+//    show(10,20);
+
+
+//    function getData(){
+//        var s='';
+//
+//
+//        return function display() {
+////        .....
+//
+//            s='hello';
+//
+//            s=null;
+//        }
+//
+//
+//    }
+//
+//   getData()();
+
+//    var btn=document.getElementById('btn01');
+//
+//    btn.onclick=function () {
+////        .....
+//
+//        btn=null;
+//    };
+
+
+    window.onload=function () {
+        document.querySelector('[class^="btn"]').onclick=function () {
+            alert('ok')
+        }
+    }
+
+
+
+
+//   btn.addEventListener('click',function () {
+//
+//   })
+
+
+</script>
+    <button id="btn01" class="btncss"></button>
+</body>
+</html>

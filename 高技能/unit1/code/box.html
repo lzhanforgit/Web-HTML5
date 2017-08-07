@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .main{
+            width: 100%;
+            height: auto;
+            background: grey;
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+
+        /*高度塌陷*/
+        .main div{
+            width: 20%;
+            min-width: 200px;
+            height: 200px;
+            background: blue;
+            float: left;
+            border: 1px solid white;
+            padding: 20px;
+            box-sizing: border-box;
+
+
+        }
+
+        .main-box{
+            width: 90%;
+            height: auto;
+            background: #7e804f;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+        }
+        .main-box div:first-child{
+            flex: 1;
+            height: 200px;
+            min-width: 200px;
+            background: pink;
+        }
+
+        .main div{
+            min-width: 200px;
+        }
+        .main-box div:nth-child(2){
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            background: #bf16ff;
+        }
+        .main-box div:nth-child(3){
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            background: #a1ff6f;
+        }
+
+        .main-box div:nth-child(4){
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            background: #5dff8a;
+        }
+        .footer{
+            width: 90%;
+            height: 120px;
+            background: gainsboro;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="main">
+        <div>
+            div01
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="main-box">
+        <div>
+
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="footer">
+
+    </div>
+</body>
+</html>

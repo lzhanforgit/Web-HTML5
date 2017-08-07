@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .div-static{
+            width: 600px;
+            height: 800px;
+            background: red;
+            margin: 0 auto;
+            position:static;
+        }
+        .div-absolute{
+            width: 600px;
+            height: 100px;
+            background: blue;
+            position:absolute;
+            left: 100px;
+            top: 0px;
+        }
+
+        .div-absolute01{
+            width: 600px;
+            height: 100px;
+            background: grey;
+            position: absolute;
+            margin: 50px 50%;
+            left: -300px;
+
+
+        }
+
+        /*absulue坐标原点：非static父容器的左上角*/
+        .inner{
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            position: absolute;
+
+            left: 120px;
+            top: 20px;
+        }
+
+
+        /*坐标原点：自身在文档流中的位置*/
+        .div-relative{
+            width: 600px;
+            height: 100px;
+            background: green;
+            margin: 0 auto;
+            position: relative;
+            left: -100px;
+
+        }
+
+        .div-fixed{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-static"></div>
+    <div class="div-absolute">
+    </div>
+
+    <div class="div-absolute01">
+        <div class="inner"></div>
+    </div>
+
+    <div class="div-relative">
+
+    </div>
+
+
+    <div class="div-fixed">
+
+    </div>
+</body>
+</html>

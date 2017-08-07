@@ -1,0 +1,37 @@
+.btn{
+    width: 80px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: black;
+    background: gainsboro;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+}
+
+.btn-lg{
+    width: 140px;
+}
+
+.btn-small{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+}
+.btn-waring{
+    background: red;
+    color: white;
+}
+
+.btn-info{
+    background: #2e59ff;
+    color: white;
+}
+
+.btn-default{
+    background: gainsboro;
+    color: black;
+}
+
