@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调案例</title>
+</head>
+<body>
+<script type="text/javascript">
+//    单线程
+//      异步
+var s='';
+    function getData(callback) {
+        setTimeout(function () {
+            s='i am from server';
+            callback(s);
+        },1000)
+
+
+//        s='i am from server';
+//        return s;
+    }
+
+    function showData(callback) {
+       getData(function (res) {
+           setTimeout(function () {
+               callback(res)
+           },2000)
+       })
+
+    }
+
+
+
+
+
+
+
+//    function add(a,b,ck) {
+//    var c=a+b;
+//    ck(c);
+//}
+//
+//
+//add(10,20,function (r) {
+//
+//});
+//
+
+</script>
+</body>
+</html>

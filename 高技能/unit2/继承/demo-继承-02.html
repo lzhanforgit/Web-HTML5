@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Object.prototype.star='earth';
+    function User(id,password) {
+        this.id=id;
+        this.password=password
+    }
+
+    User.prototype.show=function () {
+        console.log(this.id+'>>>>>'+this.password);
+    }
+
+    function Admin() {
+        this.money=10000000;
+
+//        call apply
+        User.call(this,id,password);
+    }
+
+    Admin.prototype=User.prototype
+    var admin01=new Admin();
+
+//    console.log(admin01.id);
+    console.log(admin01.star);
+
+      Date.prototype.dateFormat(){
+         return ;
+     }
+
+
+     var d=new Date();
+
+      d.dateFormat();
+</script>
+</body>
+</html>

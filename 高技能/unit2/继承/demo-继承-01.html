@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    <!--对象由属性和方法组成-->
+    var user={
+        name:'tom',
+        age:12,
+        introduce:function () {
+
+        }
+    }
+
+// 系统提供：arguments prototype-原型对象
+
+    Object.prototype.star='earth';
+
+    function User(name,age,nation) {
+        this.name=name;
+        this.age=age;
+        this.nation=nation;
+        this.introduce=function () {
+            console.log(this.name+'>>'+this.age);
+        }
+    }
+
+    User.prototype.nation='china';
+
+
+    var u=new User('jack',20,'japan');
+//    u.sex='male';
+//
+////    delete u.name;
+    var u2=new User('tom',20);
+//
+//
+//
+////    u.introduce();
+//
+//    console.log(u.nation);
+//    console.log(u2.nation);
+//
+//    u.nation='usa';
+//
+//console.log(u.nation);
+//console.log(u2.nation);
+
+//console.log(u.nation);
+console.log(u.star);
+
+
+//var arr=['aa','bb','cc'];
+
+var arr=[
+
+    ]
+
+var arr=new Array( {"0":"aa"},{"1":"bb"},{"2":"cc"})
+
+for(var index in arr){
+    console.log(index);
+}
+
+
+
+
+</script>
+</body>
+</html>

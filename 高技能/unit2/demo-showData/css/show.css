@@ -1,0 +1,33 @@
+.main{
+    width: 1000px;
+    height: 600px;
+    border: solid 1px grey;
+    margin: 0 auto;
+}
+.main ul{
+    margin: 0;
+    list-style: none;
+}
+.main ul li{
+    width: 25%;
+    height: 280px;
+    background: grey;
+    float: left;
+}
+
+.main ul li .img-css{
+    width: 80%;
+    height: 30%;
+    background: red;
+    margin: 0 auto;
+}
+
+.main ul li .book-price{
+    color:red;
+    font-size: 1.2em;
+    padding-left: 15px;
+    margin-top: 70px;
+
+}
+
+

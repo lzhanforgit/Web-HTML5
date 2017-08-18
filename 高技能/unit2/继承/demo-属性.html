@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var user={};
+    user.name='tom';
+//    delete user.name;
+
+    Object.defineProperty(user,'age',{
+        value:12,
+        writable:false,
+        enumerable:true,
+        configurable:false
+    });
+
+    console.log(user.age);
+
+    user.age=20;
+
+    console.log(user.age);
+
+    console.log('枚举结果');
+    for(var key in user){
+        console.log(key);
+    }
+
+</script>
+</body>
+</html>
