@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-4 col-lg-4">
+
+  </div>
+  <div class="col-md-4 col-lg-4" style="margin-top: 20px">
+    <form class="form-inline">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="searchText" name="searchText" [(ngModel)]="searchValue" placeholder="Amount">
+        </div>
+      </div>
+      <button type="button" class="btn  btn-warning" (click)="sendText(searchValue)">Search</button>
+    </form>
+  </div>
+  <div class="col-md-4 col-lg-4">
+    <h5>我的购物车</h5>
+  </div>
+</div>

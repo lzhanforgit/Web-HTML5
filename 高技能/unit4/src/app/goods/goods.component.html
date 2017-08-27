@@ -1,0 +1,16 @@
+<div class="row">
+  <div *ngFor="let item of goods | sarchBooks:_searchValue;let odd=odd;let index=index">
+    <div class="col-sm-6 col-md-4"  *ngIf="odd">
+      <div class="thumbnail" >
+        <img src="./../../assets/images/{{item.icon}}" alt="...">
+        <div class="caption">
+          <h3>{{item.name}}</h3>
+          <h5>￥{{item.price}}</h5>
+          <h5>品牌：{{item.brand}}</h5>
+          <p>{{item.introduce | shrinkStringLength}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

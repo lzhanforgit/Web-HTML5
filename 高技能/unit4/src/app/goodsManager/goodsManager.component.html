@@ -1,0 +1,5 @@
+<div class="row">
+  <app-search (send_text)="getSearchValue($event)"></app-search>
+  <app-filters></app-filters>
+  <app-goods [_searchValue]="searchText"></app-goods>
+</div>
