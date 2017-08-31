@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/login_regist.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3" style="margin-top: 100px">
+                <form class="form-horizontal" id="login_form">
+                    <div class="form-group">
+                        <label for="telephone" class="col-sm-2 control-label">Telephone</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="telephone" name="telephone" value="13812790421" placeholder="Telephone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10 text-warning" id="error_telephone">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10 ">
+                            <input type="password" class="form-control" value="1234567" id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10 text-warning" id="error_password">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                    <a href="regist.html">regist...</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" id="btn_login" class="btn btn-default">Login in..</button>
+                            <button type="submit" id="btn_login_submit" class="btn btn-default">submit in..</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

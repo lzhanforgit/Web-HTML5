@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <style>
+        #upload_file {
+            width: 150px;
+            height: 150px;
+            display: block;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        #preview {
+            width: 150px;
+            height: 150px;
+            background: gainsboro;
+            position: relative;
+            top: -150px;
+        }
+
+        #preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3" style="margin-top: 100px">
+            <form class="form-horizontal" id="upload_form">
+                <div class="form-group">
+                    <!--<div class="col-sm-10">-->
+                    <!--<input type="hidden" value="13812790421" name="userid">-->
+                    <!--</div>-->
+                </div>
+                <div class="form-group">
+                    <label for="upload_file" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10 ">
+                        <input type="file" class="form-control" id="upload_file" name="user_icon">
+                        <div id="preview"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        function checkLogin(){
+            if(sessionStorage.getItem('userId')){
+                $.ajax({
+                    type: 'post',
+                    url: 'http://localhost:3000/users/getUserIcon',
+                    data: {"telephone":sessionStorage.getItem('userId')},
+                    dataType:'json',
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    success: function (result) {
+                       $('#preview').append(`<img src='http://localhost:3000/uploads/${result.icon}'>`)
+                    },
+                    error: function (err) {
+                        alert('error');
+                    }
+                })
+            }else{
+                location.href='./login.html';
+            }
+        }
+        checkLogin();
+
+        $('#upload_file').change(function (e) {
+            var file = e.target.files[0];
+            preview(file);
+            upload();
+        });
+        function preview(file) {
+            var img = new Image();
+            img.src = URL.createObjectURL(file);
+            var url = img.src;
+            var $img = $(img);
+            img.onload = function () {
+                URL.revokeObjectURL(url);
+                $('#preview').empty().append($img);
+            }
+        }
+
+        function upload() {
+            var formdata = new FormData($('#upload_form')[0]);
+            formdata.append("userId", sessionStorage.getItem('userId'));
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/users/upload',
+                data: formdata,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if(result.stateCode==1){
+                        alert('上传成功');
+                    }else {
+                        alert('上传失败');
+                    }
+                },
+                error: function (err) {
+                    alert('error');
+                }
+            })
+        }
+
+
+    })
+</script>
+
+</body>
+</html>
