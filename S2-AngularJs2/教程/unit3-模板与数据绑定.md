@@ -9,6 +9,12 @@ template: `
   <h2>My favorite hero is: {{myHero}}</h2>
   `
 ```
+JavaScript 中那些具有或可能引发副作用的表达式是被禁止的，包括：
+
+* 赋值 (=, +=, -=, ...)
+* new运算符
+* 使用;或,的链式表达式
+* 自增或自减操作符 (++和--)
 
 >模板是包在 ECMAScript 2015 反引号 (`) 中的一个多行字符串。 反引号 (`) — 注意，不是单引号 (') — 允许把一个字符串写在多行上， 使 HTML 模板更容易阅读。
 
@@ -66,6 +72,8 @@ template: `
 <p *ngIf="heroes.length > 3">There are many heroes!</p>
 ```
 >Angular 并不是在显示和隐藏这条消息，它是在从 DOM 中添加和移除这个段落元素。 这会提高性能，特别是在一些大的项目中有条件地包含或排除一大堆带着很多数据绑定的 HTML 时。
+
+**ngIf指令通常会用来防范空指针错误。**
 
 ##### 4. ngSwitch
 
@@ -166,5 +174,112 @@ template: `
 
 
 
+##### 5. 属性绑定 ( [属性名] )
+
+```
+<img [src]="heroImageUrl">
+
+<button [disabled]="isUnchanged">Cancel is disabled</button>
+
+<div [ngClass]="classes">[ngClass] binding to the classes property</div>
+
+<goods-detail [goods]="currentGood"></goods-detail>
+
+```
+
+样式绑定
+
+1. class
+
+    ```
+    <p class="bg-red" [class]="'div-css'">
+    ```
+    这个时候div-css 会完全覆盖bg-red的样式。
+    
+    ```
+        newcss='div-css';
+    
+        <p class="bg-red" [class]="newcss">
+    
+    ```
+    这个时候newcss属性部位空时， 会完全覆盖bg-red的样式。
+    
+    ```
+        <div [class.cssName]="expression">The class binding is special</div>
+    ```
+    
+    当想要同时添加或移除多个 CSS 类时，NgClass指令可能是更好的选择。
+
+    ```
+        <div [ngClass]="{'special': isSpecial}"></div>
+        //多个样式选择
+        this.currentClasses =  {
+        'saveable': this.canSave,
+        'modified': !this.isUnchanged,
+        'special':  this.isSpecial
+        };
+        <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+    ```
+2. style
+
+    ```
+    <button [style.color]="isSpecial ? 'red': 'green'">Red</button>
+<button [style.background-color]="canSave ? 'cyan': 'grey'" >Save</button>
+<button [style.font-size.em]="isSpecial ? 3 : 1" >Big</button>
+<button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
+    ```
+    
+    如果要同时设置多个内联样式，NgStyle指令可能是更好的选择。
+    
+    ```
+    this.currentStyles = {
+        'font-style':  this.canSave      ? 'italic' : 'normal',
+        'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+        'font-size':   this.isSpecial    ? '24px'   : '12px'
+      };
+      
+      <div [ngStyle]="currentStyles"></div>
+    ```
+3. NgModel 
+
+    在使用ngModel指令进行双向数据绑定之前，我们必须导入FormsModule并把它添加到Angular模块的imports列表中。
+    
+         ```
+        import { FormsModule } from '@angular/forms';           ```
+    
+#### 6.模板引用变量 ( #var )
+
+模板引用变量通常用来引用模板中的某个DOM元素，它还可以引用Angular组件或指令或Web Component。
+
+可以通过模板引用变量 调用子组件内部的方法。
+
+```
+<button id="btn01" #btn (click)="show(btn)">click...</button>
+
+<h1>{{btn.id}}</h1>
+```
+**模板引用变量的作用范围是整个模板。 不要在同一个模板中多次定义同一个变量名，否则它在运行期间的值是无法确定的。**
+
+#### 7. 模板表达式操作符---安全导航操作符 ( ?. ) 和空属性路径
+
+用NgIf代码环绕它来解决这个问题。
+
+```
+<div *ngIf="nullHero">The null hero's name is {{nullHero.name}}</div>
+```
+
+或者可以尝试通过&&来把属性路径的各部分串起来，让它在遇到第一个空值的时候，就返回空。
+
+```
+The null hero's name is {{nullHero && nullHero.name}}
+```
+
+Angular 安全导航操作符 (?.) 是在属性路径中保护空值的更加流畅、便利的方式。 表达式会在它遇到第一个空值的时候跳出。 显示是空的，但应用正常工作，而没有发生错误。
+
+```
+The null hero's name is {{nullHero?.name}}
+```
+
+    
 
 
