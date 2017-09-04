@@ -157,8 +157,16 @@ ngAfterViewInit()和每次ngAfterContentChecked()之后调用。
 
     ```
     //父组件-------------
+    <div class="col-md-12 col-lg-12" style="background: grey">
+      <app-child [sItem]="selItem" (update_data)="getChild($event)" ></app-child>
+    </div>
+    
+    getChild(item){
+        this.fromChild=item;
+    }
     //ts文件
       childData:string;
+      
     //html文件
       <h1 style="color: red">
           来自子元素的数据：{{childData}}
@@ -182,12 +190,46 @@ ngAfterViewInit()和每次ngAfterContentChecked()之后调用。
 5. 父组件与子组件通过本地变量互动
 
     父组件不能使用数据绑定来读取子组件的属性或调用子组件的方法。但可以在父组件模板里，新建一个本地变量来代表子组件，然后利用这个变量来读取子组件的属性和调用子组件的方法
+    
+    这个本地变量方法是个简单便利的方法。但是它也有局限性，因为父组件-子组件的连接必须全部在父组件的模板中进行。父组件本身的代码对子组件没有访问权。
 
-6. 父组件与子组件通过本地变量互动
+如果父组件的类需要读取子组件的属性值或调用子组件的方法，就不能使用本地变量方法。
 
-    [ Angular2父子组件之间数据传递：局部变量获取子组件](http://blog.csdn.net/long328583644/article/details/74894321)
+6. 父组件调用@ViewChild()
 
+    第一步导入ViewChild
+    
+    ```
+    import { Component,ViewChild } from '@angular/core';
 
+    ```
+    第二步导入子组件
+    
+    
+    ```
+    import { InnerComponent } from './inner/inner.component';
+    
+    ```
+    
+    第三步构建子组件对象
+    
+    ```
+    @ViewChild(InnerComponent)
+    private inComponent: InnerComponent;
+    ```
+    
+    第四步赋值
+    
+    ```
+    addNumber(){
+    this.num++;
+    this.inComponent._number=this.num;
+  }
+    ```
+    
+    **注意**------------------------
+    如果在父组件中给子组件属性初始化，必须等到子组件已经构建完毕，所以要在ngAfterViewInit（）事件中。
+    
 
 ### 三、组件样式
 
@@ -217,7 +259,6 @@ ngAfterViewInit()和每次ngAfterContentChecked()之后调用。
 ``` 
 <!--只有当某个祖先元素有 CSS 类theme-light时，我们才会把background-color样式应用到组件内部的所有<h2>元素中。-->
 
- content_copy
     :host-context(.theme-light) h2 {
     background-color: #eef;
 }
