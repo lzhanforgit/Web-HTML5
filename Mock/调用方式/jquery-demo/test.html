@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script src="data.js"></script>
+
+</head>
+<body>
+<script>
+    $(function () {
+        $.ajax({
+            url:'http://books.cn',
+            type:'get',
+            dataType:'json',
+            success:function (data) {
+                document.write(JSON.stringify(data.books));
+            }
+        })
+    })
+</script>
+</body>
+</html>
