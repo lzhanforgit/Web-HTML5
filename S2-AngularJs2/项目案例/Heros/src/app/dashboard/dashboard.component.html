@@ -1,0 +1,12 @@
+
+  <div class="col-md-12 col-lg-12">
+    <div class="grid grid-pad">
+      <div *ngFor="let hero of heroes" class="col-1-4">
+        <div class="module hero">
+          <h4><a (click)="onSelect(hero)">{{hero.name}}</a></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

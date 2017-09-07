@@ -1,0 +1,48 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div class="form-group" >
+    <label for="telephone">Telephone</label>
+    <input type="text" class="form-control" value="13812790420" id="telephone" name="telephone"
+           [(ngModel)]="user.name" placeholder="telephone" pattern="^1[34578]\d{9}$" #myemail="ngModel" required>
+  </div>
+  <div class="form-group">
+    <div *ngIf="myemail.invalid && (myemail.dirty || myemail.touched)"
+         class="alert alert-danger">
+      <div *ngIf="myemail.errors.required">
+        号码不能为空
+      </div>
+      <div *ngIf="myemail.errors.pattern">
+        号码格式不正确
+      </div>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" minlength="6" name="password" [(ngModel)]="user.password" #mypassword="ngModel" placeholder="Password" required>
+  </div>
+
+  <div class="form-group">
+    <div *ngIf="mypassword.invalid && (mypassword.dirty || mypassword.touched)"
+         class="alert alert-danger">
+      <div *ngIf="mypassword.errors.required">
+        号码不能为空
+      </div>
+      <div *ngIf="mypassword.errors.minlength">
+        密码长度大于6
+      </div>
+
+    </div>
+  </div>
+
+  <!--<div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>-->
+  <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-default">Submit</button>
+</form>

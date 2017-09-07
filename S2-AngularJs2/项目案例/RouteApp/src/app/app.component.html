@@ -1,0 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <nav class="row" *ngIf="!_hiddenNavs">
+    <div class="col-md-12 col-lg-12">
+      <!--<a [routerLink]="['/index','我是默认值']" routerLinkActive="active" >首页</a>-->
+      <a routerLink='/index'routerLinkActive="active" >首页</a>
+      <a routerLink="/search" routerLinkActive="active">搜搜</a>
+      <a  routerLink="/personal-center" routerLinkActive="active">个人中心</a>
+      <a  routerLink="/other" routerLinkActive="active">other</a>
+      <a  routerLink="/login" routerLinkActive="active">login</a>
+    </div>
+  </nav>
+
+  <div>
+  </div>
+  <div class="row">
+    <router-outlet #outlet></router-outlet>
+  </div>
+</div>
+

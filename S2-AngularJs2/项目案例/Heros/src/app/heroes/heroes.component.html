@@ -1,0 +1,15 @@
+
+  <div class="col-md-8 col-lg-8">
+    <h2>My Heroes</h2>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+        <a [routerLink]="['/detail',hero.id]">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4 col-lg-4">
+    <!--把选中的hero对象传入子组件-->
+  </div>
+
