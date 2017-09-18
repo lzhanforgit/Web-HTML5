@@ -1,0 +1,41 @@
+<div class="row">
+<div class="col-md-3 col-lg-3"></div>
+<div class="col-md-6 col-lg-6">
+
+  <form #loginForm="ngForm">
+    <div class="form-group">
+      <label for="telephone">Telephone</label>
+      <input type="text" class="form-control" id="telephone" name="telephone" pattern="^1[3|4|5|8][0-9]\d{8}$"
+             #tp="ngModel" [(ngModel)]="tel" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+      <div *ngIf="tp.invalid && (tp.dirty || tp.touched)"
+           class="alert alert-danger">
+        <div *ngIf="tp.errors.required">
+          号码不能为空
+        </div>
+        <div *ngIf="tp.errors.pattern">
+          号码格式不正确
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password"
+             name="password" [(ngModel)]="pass" placeholder="Password"  #pa="ngModel"  required>
+    </div>
+
+    <div class="form-group">
+      <div *ngIf="pa.invalid && (pa.dirty || pa.touched)"
+           class="alert alert-danger">
+        <div *ngIf="pa.errors.required">
+          密码不能为空
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default" [disabled]="loginForm.form.invalid" (click)="login(loginForm)">Submit</button>
+    <button type="button" class="btn btn-default" [disabled]="loginForm.form.invalid" (click)="getAllUsers()">GetAllUsers</button>
+  </form>
+</div>
+</div>

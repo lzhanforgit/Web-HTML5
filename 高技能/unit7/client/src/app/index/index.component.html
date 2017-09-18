@@ -1,0 +1,15 @@
+<div class="row">
+  <ul class="nav nav-tabs">
+    <li role="presentation" [class]="i==index?'active':''" *ngFor="let item of tabs;let index=index"><a href="javascript:void 0" (click)="i=index">{{item}}</a></li>
+
+  </ul>
+
+
+  <div [ngSwitch]="i">
+    <div *ngSwitchCase="0">这是商品详情组件。。。。</div>
+    <div *ngSwitchCase="1">这是评论区</div>
+    <div *ngSwitchCase="2">这是帮助区</div>
+
+    <div *ngSwitchDefault>...</div>
+  </div>
+</div>

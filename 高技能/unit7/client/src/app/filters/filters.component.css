@@ -1,0 +1,21 @@
+.title{
+  padding: 10px;
+  height: 50px;
+  background: grey;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+}
+ul li{
+  float: left;
+
+  padding: 10px;
+  padding-top: 2px;
+}
+
+ul li:hover{
+  color: red;
+  text-decoration: underline;
+}
