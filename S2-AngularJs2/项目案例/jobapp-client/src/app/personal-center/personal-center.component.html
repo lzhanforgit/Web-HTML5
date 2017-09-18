@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="jumbotron">
+    <h1>个人中心</h1>
+    <p>...</p>
+    <p><button (click)="toIndex()" class="btn btn-primary btn-lg" >返回首页</button></p>
+  </div>
+</div>
+<div class="row">
+  <nav class="col-md-4 col-lg-4">
+
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active">
+        <a  routerLink="./menus" routerLinkActive="active">我的订单</a>
+      </li>
+      <li role="presentation">
+        <a  routerLink="./collections" routerLinkActive="active">我的收藏</a>
+      </li>
+      <li role="presentation">
+        <a  routerLink="./setting" routerLinkActive="active">设置</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="col-md-8 col-lg-8">
+    <router-outlet>
+
+    </router-outlet>
+
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+<div class="row">
+  <div class="col-md-2">广告位</div>
+  <div class="col-md-10">
+    <div class="position_container" *ngFor="let position of positions" (click)="toPositionDetail(position.id)">
+      <div class="position_left">
+        <div class="position_left_01">
+          {{position.name}}
+        </div>
+        <div class="position_left_02">
+          <ul>
+            <li>{{position.salary}}</li>
+            <li>{{position.city_name}}</li>
+            <li>{{position.education}}</li>
+            <li>{{position.years_working}}</li>
+          </ul>
+        </div>
+        <div class="position_left_03">
+          4小时前 | 投递后：5天以内反馈
+        </div>
+      </div>
+      <div class="position_right"></div>
+    </div>
+  </div>
+</div>
+
