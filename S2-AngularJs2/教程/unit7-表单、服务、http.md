@@ -156,8 +156,34 @@
     req.subscribe();
     // 2 requests made.
     ```
+4. http.get()设置头和查询参数
 
-3. http.post()
+    ```
+    //导入模块
+    import {HttpClient,HttpHeaders,HttpParams} from '@angular/common/http';
+
+    let headers = new HttpHeaders({ "token": "88889999999" });
+    headers.append("Accept", "application/json");
+    
+     let params = new HttpParams().set('myParam', 'myValue');
+     
+      this.http.get(this.url,{headers:headers,params:params}).subscribe(function (result) {
+      callback(result);
+    })
+    ```
+    **需要注意的是**，我们通过链式语法调用 set() 方法，构建 HttpParams 对象。这是因为 HttpParams 对象是不可变的，通过 set() 方法可以防止该对象被修改。
+
+    每当调用 set() 方法，将会返回包含新值的 HttpParams 对象，因此如果使用下面的方式，将不能正确的设置参数。
+    
+    ```
+    const params = new HttpParams();
+
+    params.set('orderBy', '"$key"')
+    params.set('limitToFirst', "1");
+    ```
+    [参考链接](https://segmentfault.com/a/1190000010259536)
+
+4. http.post()
 
     ```
     login(body,callback){
@@ -170,5 +196,7 @@
     );
   }
     ```
+
+5. 拦截器
 
 
