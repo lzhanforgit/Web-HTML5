@@ -87,6 +87,7 @@
    ```
 
    特殊应用场景：
+   
    ```
     //数组深拷贝
 
@@ -101,9 +102,8 @@
    ```
 
    ```
-
-
    //数组深拷贝
+   
    var arr2 = arr;
    var arr3 = [...arr];
    console.log(arr===arr2); //true, 说明arr和arr2指向同一个数组
@@ -124,6 +124,7 @@
     var num=-123.008;
     console.log(Math.floor(num));//-124
     console.log(Math.trunc(num));//-123
+    console.log(~~num);//-123
     ```
 
 5. 数组的扩展
@@ -300,6 +301,7 @@
     ```
 
     模板自变量定义多行标签
+    
     ```
     window.onload=function () {
             let div=document.querySelector('#table');
@@ -326,6 +328,7 @@
     ```
 4. 解构
     自动解析数组或对象中的值。比如若一个函数要返回多个值，常规的做法是返回一个对象，将每个值做为这个对象的属性返回。但在ES6中，利用解构这一特性，可以直接返回一个数组，然后数组中的值会自动被解析到对应接收该值的变量中。
+    
     ```
     var [x,y]=getVal(),//函数返回值的解构
         [name,,age]=['wayou','male','secrect'];//数组解构
@@ -339,6 +342,8 @@
     ```
 5. 函数
     1. 函数默认参数值
+
+    
         ```
     	function  show(name='helen') {
             var n=name;
@@ -346,6 +351,7 @@
         }
         show('tom');
         ```
+        
         >当使用 ECMAScript 6 的默认参数时，arguments对象的表现和 ECMAScript 5 的严格模式一致，不管函数是否显式设定为严格模式。默认参数的存在会使 arguments 对象对该命名参数解绑。
 
         ```
@@ -745,6 +751,7 @@
     ```
 
     demo
+    
     ```
 	function helloWorld (ready) {
     return new Promise(function (resolve, reject) {
@@ -778,6 +785,7 @@
     catch 方法是 then(onFulfilled, onRejected) 方法当中 onRejected 函数的一个简单的写法，也就是说可以写成 then(fn).catch(fn)，相当于 then(fn).then(null, fn)。使用 catch 的写法比一般的写法更加清晰明确。
 
     demo
+    
     ```
         helloWorld(false)
         .then(function (message) {
