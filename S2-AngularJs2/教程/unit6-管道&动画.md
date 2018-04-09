@@ -1,7 +1,7 @@
 ### 一、管道
 1. 管道概述
 
-    Angular内置了一些管道，比如DatePipe、UpperCasePipe、LowerCasePipe、CurrencyPipe和PercentPipe。 它们全都可以直接用在任何模板中。
+    Angular内置了一些管道，比如 SlicePipe,DatePipe、UpperCasePipe、LowerCasePipe、CurrencyPipe和PercentPipe。 它们全都可以直接用在任何模板中。
     
     **Angular没有FilterPipe或OrderByPipe管道**
     
