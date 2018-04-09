@@ -296,4 +296,70 @@ nginx -V            显示 nginx 的版本，编译器版本和配置参数。
 
 ```
 
+---
+
+3. 安装方式二
+
+1. 在nginx官方网站下载一个rpm包，
+    下载地址是：http://nginx.org/en/download.html
+    wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+
+2. 安装这个rpm包
+
+    rpm -ivh nginx-release- centos-6-0.el6.ngx.noarch.rpm 
+
+    安装过程中会出现错误提示：
+
+    warning: nginx-release-centos-6-0.el6.ngx.noarch.rpm: Header V4 RSA/SHA1 Signature, key ID 7bd9bf62: NOKEY
+
+    不知道干什么的，忽略即可
+
+3 开始正式安装nginx
+
+    yum install nginx
+
+    会显示一大堆信息，问你ok不ok啊：Is this ok [y/N]:
+
+输入y，屏幕滚了一会之后就安装完毕，最后提示“Complete!”就是安完了。
+
+4 nginx的几个默认目录
+
+    whereis nginx
+    nginx: /usr/sbin/nginx /etc/nginx /usr/share/nginx
+
+1 配置所在目录：/etc/nginx/
+2 PID目录：/var/run/nginx.pid
+3 错误日志：/var/log/nginx/error.log
+4 访问日志：/var/log/nginx/access.log
+5 默认站点目录：/usr/share/nginx/html
+
+5 常用命令
+
+1 启动nginx：nginx
+2 重启nginx：killall -HUP nginx
+3 测试nginx配置：nginx -t
+
+6 Nginx无法站外访问？
+
+刚安装好nginx一个常见的问题是无法站外访问，本机wget、telnet都正常。而服务器之外，不管是局域网的其它主机还是互联网的主机都无法访问站点。如果用telnet的话，提示：
+
+正在连接到192.168.0.xxx...不能打开到主机的连接， 在端口 80: 连接失败
+
+如果用wget命令的话，提示：
+
+Connecting to 192.168.0.100:80... failed: No route to host.
+
+如果是以上的故障现象，很可能是被CentOS的防火墙把80端口拦住了，尝试执行以下命令，打开80端口：
+
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+
+然后用：
+
+/etc/init.d/iptables status
+
+查看当前的防火墙规则，如果发现有这样一条：
+
+ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0           tcp dpt:80
+
+就说明防火墙规则已经添加成功了，再在站外访问就正常了。
 
