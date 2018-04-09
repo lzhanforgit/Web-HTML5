@@ -93,6 +93,18 @@
 		只解析10进制数
 		
 		如果被解析的字符串中没有小数点，则结果为整数。
+	4. 类型转化的快捷方式
+
+	   ```
+	   var myVar = "3.14159",
+    str = "" + myVar, //  to string  
+    num=+myVar,       // to number
+    i_int = ~ ~myVar,  //  to integer  
+    f_float = 1 * myVar,  //  to float  
+    b_bool = !!myVar,  /*  to boolean - any string with length 
+                            and any number except 0 are true */
+    array = [myVar];  //  to array
+	   ```
 		
 8. string
 
@@ -191,7 +203,7 @@
 		}
 		console.log(getres());
 	
-	
+14. call apply
 #part 2 
 ###面向对象
 
