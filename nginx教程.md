@@ -7,6 +7,17 @@
     //查看版本
     nginx -v
     ```
+2. 目录
+
+    ```
+    默认项目目录
+    /usr/local/nginx/html
+    
+    nginx.conf目录
+    /usr/local/etc/nginx
+    
+    
+    ```
 2. 常用命令
 3. 
     ```
