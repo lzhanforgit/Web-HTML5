@@ -10,12 +10,10 @@
         this.age=age;
         this.name=name;
     }
+
     Person.prototype.show=function () {
         console.log(this.name);
     };
-
-
-
 
     function Student(name,age) {
         this.school='gem';
@@ -23,7 +21,6 @@
         Person.call(this,name,age);
 
     }
-
 
     Student.prototype=new Person();
     var s=new Student('tom',10);
@@ -34,9 +31,6 @@
     s.show();
 
 //    console.log(s.constructor);
-
-
-
 
 </script>
 </body>
