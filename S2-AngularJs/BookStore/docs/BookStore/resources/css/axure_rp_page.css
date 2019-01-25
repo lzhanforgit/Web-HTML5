@@ -1,0 +1,79 @@
+﻿p 
+{
+	margin: 0px;
+}
+
+iframe
+{
+	background: #FFFFFF;
+}
+
+div.intcases 
+{
+	font-family: arial; 
+	font-size: 12px;
+    text-align:left; 
+	border:1px solid #AAA; 
+	background:#FFF none repeat scroll 0% 0%; 
+	z-index:9999; 
+	visibility:hidden; 
+	position:absolute;
+    padding: 0px;
+    border-radius: 3px;
+}
+
+div.intcaselink
+{
+	cursor: pointer;
+    padding: 3px 8px 3px 8px;
+    margin: 5px;
+	background:#EEE none repeat scroll 0% 0%; 
+	border:1px solid #AAA;
+    border-radius: 3px;
+}
+
+div.annnoteimage
+{
+	position: absolute;
+	font-size: 0px;
+	width: 16px;
+	height: 12px;
+	cursor: help;
+	background-image: url(images/note.gif);
+	background-repeat: no-repeat;
+}
+
+div.annnotelabel
+{
+	position: absolute;
+	font-family: Arial;
+	font-size: 10px;
+	border: 1px solid #666666;
+	cursor: help;
+	background:#DDDD00 none repeat scroll 0% 0%; 
+	padding-left:3px; 
+	padding-right:3px;
+	white-space: nowrap;
+}
+ 
+.annotationName 
+{
+	font-size: .7em;
+	font-weight: bold;
+	margin-bottom: .2em;
+	white-space: nowrap;
+}
+
+.annotation 
+{
+	font-size: .7em;
+	padding-left: .2em;
+	margin-bottom: 1em;
+}
+
+/* this is a fix for the issue where dialogs jump around and takes the text-align from the body */
+.dialogFix 
+{
+    position:absolute;
+    text-align:left;
+}

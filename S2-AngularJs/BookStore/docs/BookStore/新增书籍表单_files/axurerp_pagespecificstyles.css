@@ -1,0 +1,476 @@
+﻿body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../新增书籍表单_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:10px;
+    top:10px;
+    width:590px;
+    height:390px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:596px;
+    height:396px;
+}
+
+.u1 {
+    position:absolute;
+    left:19px;
+    top:187px;
+    width:552px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_normal {
+    background-image: url('../新增书籍表单_files/u2_normal.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:215px;
+    top:95px;
+    width:300px;
+    height:30px;
+}
+
+#u2_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:306px;
+    height:36px;
+}
+
+.u3 {
+    position:absolute;
+    left:10px;
+    top:5px;
+    width:288px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4_normal {
+    background-image: url('../新增书籍表单_files/u4_normal.png');
+}
+
+.u4_container {
+    position:absolute;
+    left:215px;
+    top:135px;
+    width:300px;
+    height:30px;
+}
+
+#u4_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:306px;
+    height:36px;
+}
+
+.u5 {
+    position:absolute;
+    left:10px;
+    top:5px;
+    width:288px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6_normal {
+    background-image: url('../新增书籍表单_files/u6_normal.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:215px;
+    top:175px;
+    width:300px;
+    height:30px;
+}
+
+#u6_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:306px;
+    height:36px;
+}
+
+.u7 {
+    position:absolute;
+    left:10px;
+    top:5px;
+    width:288px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8_normal {
+    background-image: url('../新增书籍表单_files/u8_normal.png');
+}
+
+.u8_container {
+    position:absolute;
+    left:215px;
+    top:215px;
+    width:300px;
+    height:30px;
+}
+
+#u8_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:306px;
+    height:36px;
+}
+
+.u9 {
+    position:absolute;
+    left:10px;
+    top:5px;
+    width:288px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10 {
+    position:absolute;
+    left:95px;
+    top:101px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11 {
+    position:absolute;
+    left:95px;
+    top:141px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12 {
+    position:absolute;
+    left:95px;
+    top:181px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u13 {
+    position:absolute;
+    left:95px;
+    top:221px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u15 {
+    position:absolute;
+    left:16px;
+    top:0px;
+    width:282px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16 {
+    position:absolute;
+    left:95px;
+    top:41px;
+    width:420px;
+    height:32px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u17_normal {
+    background-image: url('../新增书籍表单_files/u17_normal.png');
+}
+
+.u17_container {
+    position:absolute;
+    left:318px;
+    top:358px;
+    width:76px;
+    height:29px;
+}
+
+#u17_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:82px;
+    height:35px;
+}
+
+.u18 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:72px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u19_normal {
+    background-image: url('../新增书籍表单_files/u19_normal.png');
+}
+
+.u19_container {
+    position:absolute;
+    left:420px;
+    top:358px;
+    width:76px;
+    height:29px;
+}
+
+#u19_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:82px;
+    height:35px;
+}
+
+.u20 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:72px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u21_normal {
+    background-image: url('../新增书籍表单_files/u21_normal.png');
+}
+
+.u21_container {
+    position:absolute;
+    left:215px;
+    top:358px;
+    width:76px;
+    height:29px;
+}
+
+#u21_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:82px;
+    height:35px;
+}
+
+.u22 {
+    position:absolute;
+    left:2px;
+    top:6px;
+    width:72px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u23 {
+    position:absolute;
+    left:95px;
+    top:256px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24 {
+    position:absolute;
+    left:95px;
+    top:292px;
+    width:110px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u25_normal {
+    background-image: url('../新增书籍表单_files/u25_normal.png');
+}
+
+.u25_container {
+    position:absolute;
+    left:215px;
+    top:286px;
+    width:215px;
+    height:30px;
+}
+
+#u25_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:221px;
+    height:36px;
+}
+
+.u26 {
+    position:absolute;
+    left:10px;
+    top:5px;
+    width:203px;
+    height:20px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u27_normal {
+    background-image: url('../新增书籍表单_files/u27_normal.png');
+}
+
+.u27_container {
+    position:absolute;
+    left:440px;
+    top:285px;
+    width:75px;
+    height:31px;
+}
+
+#u27_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:81px;
+    height:37px;
+}
+
+.u28 {
+    position:absolute;
+    left:2px;
+    top:7px;
+    width:71px;
+    height:17px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

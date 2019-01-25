@@ -1,0 +1,187 @@
+﻿
+#sitemapHost {
+    font-size: .75em;
+    color:#333;
+    background-color:#FFF;
+    height: 100%;
+}
+
+#sitemapTreeContainer {
+    /*margin: 0px 8px 0px 10px;*/
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.sitemapTree {
+    /* list-style-type: none; */
+    margin: 10px 0px 10px -9px;
+    overflow:visible;
+}
+
+.sitemapTree ul {
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+    padding-left: 2px;
+}
+
+.sitemapPlusMinusLink 
+{
+}
+
+.sitemapMinus 
+{
+	vertical-align:middle;
+    background: url('images/minus.gif');
+    background-repeat: no-repeat;
+	margin-right: 3px;	
+	margin-bottom: 1px;
+    height:9px;
+    width:9px;
+    display:inline-block;
+}
+
+.sitemapPlus 
+{
+	vertical-align:middle;
+    background: url('images/plus.gif');
+    background-repeat: no-repeat;
+	margin-right: 3px;	
+	margin-bottom: 1px;
+	height:9px;
+    width:9px;
+    display:inline-block;
+}
+
+.sitemapPageLink 
+{
+    margin-left: 0px;
+}
+
+.sitemapPageIcon 
+{
+	margin-bottom:-3px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url('images/page.gif');
+    background-repeat: no-repeat;
+}
+
+.sitemapFlowIcon
+{
+    background: url('images/case.gif');
+}
+
+.sitemapPageName 
+{
+    margin-left: 3px;
+}
+
+.sitemapNode 
+{
+    margin:3px 0px 3px 32px;
+    white-space:nowrap;
+}
+
+.sitemapNode div
+{
+	padding-top: 2px; 
+	padding-bottom: 2px; 
+	height: 14px;
+}
+
+.sitemapExpandableNode 
+{
+	margin-left: 20px;
+}
+
+.sitemapHighlight 
+{
+	margin-left: -1px;
+	background-color : #EEE;
+    padding-right : 4px;
+    padding-bottom : 0px;
+    padding-top : 1px;
+    border : 1px solid #AAA;
+}
+
+.sitemapToolbar 
+{
+	margin: 10px 10px 0px 10px;
+}
+
+.sitemapToolbarButton 
+{
+	font-size: 1em;
+	color: #069;
+}
+
+.sitemapLinkContainer
+{
+	margin-top: 8px;
+	padding-right: 5px;
+	font-size: 1em;
+}
+
+.sitemapLinkField 
+{
+	width: 100%;
+	font-size: 1em;
+	margin-top: 3px;
+}
+
+.sitemapOptionContainer
+{
+	margin-top: 8px;
+	padding-right: 5px;
+	font-size: 1em;
+}
+
+.optionLabel
+{
+	font-size: 1em;
+}
+
+.sitemapLinkLabel
+{
+}
+
+#sitemapLinksContainer 
+{
+	background-color: #EEE;
+	border: 1px solid #AAA;
+	padding: 5px 5px 5px 5px;
+	margin: 5px 0px 0px 0px;
+	border-radius: 2px;
+}
+
+#sitemapOptionsContainer
+{
+	background-color: #EEE;
+	border: 1px solid #AAA;
+	padding: 5px 5px 5px 5px;
+	margin: 8px 0px 0px 0px;
+	border-radius: 2px;
+}
+
+#sitemapVariableOptionLabel
+{
+    position: relative;
+    top: -2px;
+}
+
+#sitemapClosePlayer
+{
+	color: #069;
+}
+
+#sitemapLinksPageName
+{
+	font-weight: bold;
+}
+
+#sitemapOptionsHeader
+{
+	font-weight: bold;
+}

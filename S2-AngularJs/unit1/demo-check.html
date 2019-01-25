@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <!--<style>-->
+        <!--input:invalid{-->
+            <!--background-color: green;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+
+
+
+<div ng-app="myApp" >
+    <div ng-controller="ctrl_login">
+        <form action="" name="myForm">
+            <input type="email" name="userEmail" id="txtEmail" ng-model="userEmail" required>
+
+            <span style="color:red" ng-show="myForm.userEmail.$dirty && myForm.userEmail.$invalid">
+                <span ng-show="myForm.userEmail.$error.required">邮箱是必须的。</span>
+                <span ng-show="myForm.userEmail.$error.email">非法的邮箱。</span>
+            </span>
+
+
+
+            <!--<span style="color: red" ng-show="myForm.userEmail.$error.required">*邮箱不能为空</span>-->
+            <!--<span style="color: red" ng-show="myForm.userEmail.$error.email">邮箱格式不合法</span>-->
+
+            <br>
+            <input type="number" name="userAge" id="txtAge" ng-model="userAge" max="100" min="1" required>
+
+
+            <!--<span style="color: red" ng-show="myForm.userAge.$error.required">*年龄不能为空</span>-->
+            <!--<span style="color: red" ng-show="myForm.userAge.$invalid">数字越界</span>-->
+            <br>
+
+            <input type="button" ng-click="login()" value="login">
+        </form>
+
+        hello : {{userid}}
+    </div>
+    <div ng-controller="ctrl_content">
+        hello : {{userid}}
+    </div>
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ctrl_login', function($scope,$rootScope) {
+        //所赋的value必须满足表单的验证规则
+//        $scope.userid= "John";
+        $scope.userAge=0;
+        $rootScope.userid='zl';
+
+        $scope.userid=$rootScope.userid;
+        $scope.result=[
+            {id:'001',name:'tom'},
+            {id:'002',name:'rose'},
+            {id:'003',name:'tony'}
+        ]
+
+        $scope.login=function () {
+            alert($scope.userEmail);
+        }
+
+    });
+
+    app.controller('ctrl_content', function($scope,$rootScope) {
+        //所赋的value必须满足表单的验证规则
+//        $scope.userid= "John";
+        $scope.userAge=0;
+        $scope.userid=$rootScope.userid;
+        $scope.result=[
+            {id:'001',name:'tom'},
+            {id:'002',name:'rose'},
+            {id:'003',name:'tony'}
+        ]
+
+    });
+</script>
+
+</body>
+</html>

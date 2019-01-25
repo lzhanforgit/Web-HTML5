@@ -1,0 +1,25 @@
+<HTML>
+<HEAD><meta http-equiv="content-type" content="text/html; charset=utf-8">
+</HEAD>
+<BODY style='font-family: arial; font-size: 12px;'>
+
+<div style="padding:5px; width:100%; text-align:right">
+This prototype was created with <a style="text-decoration:none;" href="http://www.axure.com" target=_blank><strong>Axure RP Pro</strong></a></div>
+<p style='font-size: 16px;'><b>Help</b></p>
+<p>If you are viewing this prototype in the HTML 
+Help Viewer and would like to open the prototype in a web browser, click 
+<a style="text-decoration:none;" href="start.html" target=_blank>here</a>.</p>
+<p>Click on a page or flow diagram in the contents 
+tree to navigate directly to a page or flow diagram in the design.</p>
+<p>Click on note icons 
+<img border="0" src="resources/css/images/note.gif" width="16" height="16"> in the prototype 
+to display annotations related to the 
+elements on the screen.</p>
+<p>Some elements on the screen may be interactive. 
+For example, clicking on a link may take you to another page.</p>
+<p>In some cases a menu will appear displaying 
+multiple paths a user may take after performing an action. Clicking on an item in that menu will perform the 
+action for that path.</p>
+
+</BODY>
+</HTML>

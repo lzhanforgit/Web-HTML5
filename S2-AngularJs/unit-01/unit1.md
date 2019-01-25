@@ -6,6 +6,10 @@ unit1
     会产生依赖关系。所以尽量用一到两种脚本完成开发。
 
     AngularJs主要构件单页面应用程序，它是一种构建动态Web应用的结构化框架。
+    各版本：
+    https://github.com/angular/angular.js/releases
+    各版本打包版本
+    https://code.angularjs.org/
 2. 数据绑定
     >AngularJs创建模板来代替视图，不是将数据合并进模板之后更新DOM。
 

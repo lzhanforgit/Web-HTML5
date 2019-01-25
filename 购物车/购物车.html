@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市二级联动</title>
+    <style>
+        body,ul,li{
+            padding: 0;
+            margin: 0;
+        }
+
+        .cart_container{
+            width: 992px;
+            height: 90px;
+            margin: 100px auto;
+            background: #ececec;
+
+        }
+        table{
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-spacing: 0;
+        }
+
+        table tr td:first-child{
+            width: 12%;
+        }
+        table tr td:nth-child(2){
+            width: 40%;
+        }
+
+        table tr:nth-child(2){
+            background: white;
+        }
+
+        .seprater{
+            width: 100%;
+            height: 0px;
+            border: solid 2px red;
+        }
+
+        .icon{
+            width: 400px;
+            height: 90px;
+
+            box-sizing: border-box;
+        }
+
+        .icon img{
+            width: 85px;
+            height: 80px;
+            margin-top: 5px;
+        }
+        .icon div{
+            float: left;
+            margin-right: 10px;
+        }
+
+        .icon div:nth-child(3){
+            margin-left: 30px;
+        }
+
+        .btn{
+
+            border: solid 1px gray;
+            margin: 0px;
+        }
+
+        .txt_num{
+            width: 30px;
+            height: 1.5em;
+            border: solid 1px gray;
+            text-align: center;
+        }
+
+        .tab_bottom{
+            width: 100%;
+            height: 60px;
+
+        }
+
+        .tab_bottom tr td:first-child{
+            width: 70%;
+        }
+        .tab_bottom tr td:nth-child(2){
+            width: 20%;
+        }
+        .tab_bottom tr td button{
+            width: 90px;
+            height: 60px;
+            background: red;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+<!--商品单价数量小计操作-->
+   <div class="cart_container">
+       <table>
+           <tr>
+               <td>
+                   <input type="checkbox" id="chk_all"> <label for="chk_all">全选</label>
+               </td>
+               <td>商品</td>
+               <td>单价</td>
+               <td>数量</td>
+               <td>小计</td>
+               <td>操作</td>
+           </tr>
+           <tr>
+               <td>
+                   <input type="checkbox" id="chk_type"> <label for="chk_type" style="background: red;color:white;font-size: 0.8em">京东自营</label>
+               </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td style="text-align: right">
+                   以免运费
+               </td>
+           </tr>
+       </table>
+
+       <div class="seprater"></div>
+
+       <table id="goods_container">
+          <!-- <tr>
+               <td>
+                   <input type="checkbox" id="chk_all">
+               </td>
+               <td>
+                   <div class="icon">
+                       <div><img src="images/book01.jpg" alt=""></div>
+                       <div>
+                           <p>浮生六计</p>
+                       </div>
+                       <div>
+                           <p>颜色：金色</p>
+                           <p>尺码：公开版</p>
+                       </div>
+                   </div>
+               </td>
+               <td>￥1000</td>
+               <td>
+                   <input type="button" class="btn" value="-">
+                   <input type="text" value="1" class="txt_num">
+                   <input type="button" class="btn" value="+">
+               </td>
+               <td>￥1000</td>
+               <td>删除</td>
+           </tr>-->
+
+
+
+       </table>
+
+       <table class="tab_bottom">
+           <tr>
+               <td>
+                   <input type="checkbox" id="chk_all_bottom"><label for="chk_all_bottom">全选</label>
+
+                   <a href="">删除选中的商品</a>
+
+                   <a href="">移到我的关注</a>
+               </td>
+               <td id="total_price">
+                   总价：
+               </td>
+               <td>
+                   <button>去结算</button>
+               </td>
+           </tr>
+       </table>
+
+   </div>
+    <script src="cart.js"></script>
+</body>
+</html>

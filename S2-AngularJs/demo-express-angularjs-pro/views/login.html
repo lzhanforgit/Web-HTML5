@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <style>
+        .baseStyle{
+            transition: all linear 0.5s;
+            background-color: lightblue;
+            height: 100px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 100px;
+        }
+        .ng-hide {
+            height: 0;
+            width: 100%;
+            background-color: transparent;
+            top:-200px;
+            left: 200px;
+        }
+    </style>
+
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+</head>
+<body>
+    <!--表单提交-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <%=author%>
+            </div>
+        </div>
+        <div class="row" ng-app="module_login" ng-controller="login_controller">
+            <div class="col-md-12">
+                <form name="loginForm" id="login_form">
+                    <div class="form-group">
+                        <label for="txtEmail">Email address</label>
+                        <input type="email" class="form-control" id="txtEmail"  name="email" ng-model="user_email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPassword">Password</label>
+                        <input type="password" class="form-control" name="password" id="txtPassword" ng-model="user_password" placeholder="Password">
+                    </div>
+                    <div>
+                        <input type="hidden" name="name" value="admin04">
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="inlineRadio1" value="1"> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="inlineRadio2" value="0"> 女
+                        </label>
+                    </div>
+                    <button type="button" ng-click="login()" class="btn btn-default">submit-angular</button>
+                </form>
+
+            </div>
+            <div class="baseStyle" ng-hide="isHide">
+                {{_result}}
+            </div>
+        </div>
+        <!--end row-->
+    </div>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--<script src="/javascripts/app/app.js"></script>-->
+    <script src="/javascripts/login/login_ctrl.js"></script>
+    <script src="/javascripts/login/login_service.js"></script>
+</body>
+</html>

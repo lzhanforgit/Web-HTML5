@@ -189,6 +189,7 @@ unit2
          return {
                     restrict : "A",
                     replace  : true,
+                    // 创建指令自己的独立作用域，与父级毫无关系
                     scope: {
                         hrefUrl: '@myUrl',
                         linkTexts: '=linkTexts'  }, //here 双向绑定
@@ -216,4 +217,78 @@ unit2
                     template : "<a href='{{hrefUrl}}'>{{linkTexts}}</a>"
                 };
         });
+    ```
+
+    ```
+    <book-template-demo book-all="books"></book-template-demo>
+
+     .directive("bookTemplateDemo", function() {
+            return {
+                restrict : "AE",
+                scope: {
+                    books:'=bookAll'
+                  },
+                template : "<div ng-repeat='book in books' style='background-color: red'>" +
+                "<h3>{{book.title}}</h3>" +
+                "<article>{{book.content}}</article>" +
+                "</div>"
+            };
+    ```
+
+
+    综合（& 调用函数）
+    ```
+    <body ng-app="myAPP">
+    <div  ng-controller="myCtrl">
+        <input type="text" ng-model="values">
+        <directive-add-sub ng-model="values" add-click="outadd(i)"></directive-add-sub>
+
+        <p>{{formin}}</p>
+        <hr>
+
+    </div>
+
+
+    <!--mvc: model view controll-->
+    <script>
+        angular.module('myAPP', [])
+            .controller('myCtrl', function ($scope) {
+                $scope.formin=110;
+                $scope.outadd=function (i) {
+                    console.log(i);
+                    i++;
+                    $scope.formin=i;
+                }
+            })
+            .directive("directiveAddSub", function() {
+                return {
+                    restrict : "ACE",
+                    replace:true,
+    //                使用scope 可以定向绑定到具体的指令上，如果用'='双向绑定，则必须绑定到ng-model
+                    scope:{
+                        values:'=ngModel',
+                        addClick:'&'
+                    },
+                    required:'ngModel',
+                    template : "<div>" +
+                        "<button class='btn' ng-click='sub()'>-</button>" +
+                        "<p>{{values}}</p>" +
+                        "<button class='btn' ng-click='addClick({i:values})'>+</button>" +
+                    "</div>",
+    //                templateUrl:'templates/template-add.html',
+                    link:function (scope, iElement, iAttrs) {
+                        scope.values=10;
+                        scope.add=function () {
+                            scope.values++;
+                        }
+                        scope.sub=function () {
+                            scope.values--;
+                        }
+                    }
+                };
+            })
+
+
+    </script>
+    </body>
     ```

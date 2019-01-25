@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+        <link type="text/css" href="css/default.css" rel="Stylesheet" />
+        <script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="scripts/messagecenter.js"></script>
+        <script type="text/javascript"><!--
+            $(document).ready(function () {
+                $('#maximizeButton').click(function () {
+                    var query = $(this);
+                    query.css('background-color', '#DDD');
+//                    query.css('border-width', '0');
+//                    query.css('border-top-width', '2px');
+                    $axure.messageCenter.postMessage('expandFrame');
+                });
+
+            });
+
+        --></script>
+	</head>
+	<body style="background-color:transparent;">
+	    <div id="maximizePanel">
+            <a title="Expand Controls" id="maximizeButton"
+            onmouseover="style.backgroundColor='#AAA';"
+            onmouseout="style.backgroundColor='#DDD';"
+            >&nbsp;</a>
+        </div>
+	</body>
+</html>

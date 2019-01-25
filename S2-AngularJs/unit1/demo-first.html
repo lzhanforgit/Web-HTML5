@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+
+
+<div ng-app="myApp" >
+        <div ng-controller="myCtrl">
+            <form action="#" >
+                <!--ng-init 不建议使用-->
+                <input type="text" id="txt_id" ng-model="txtid" ng-init="txtid=['001','002']">
+                <input type="text" id="txt_id2" ng-model="txtid">
+            </form>
+            <div  contenteditable="true">
+                <!--hello {{txtid || 'world'}}-->
+                <ul>
+                    <li>{{txtid[0]}}</li>
+                    <li>{{txtid[1]}}</li>
+                    <li>{{txtid[1]+5}}</li>
+                </ul>
+            </div>
+            hello {{firstName}}
+        </div>
+        <div ng-controller="ctrl_login">
+            <form action="#">
+                <input type="text" id="txtid" ng-model="userid" required>
+
+                <span ></span>
+                <input type="text" id="txtpassword" class="css_txtpass" ng-model="userpassword">
+                <input type="button" value="login">
+            </form>
+            <ul>
+                <li ng-repeat="x in result">
+                    {{x.name}}
+                </li>
+            </ul>
+
+            <ul>
+                <li ng-repeat="(key, value) in result[0]">
+                    {{key}}---{{value}}
+                </li>
+            </ul>
+
+
+        </div>
+
+    <an-airective></an-airective>
+
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        //            所赋的value必须满足表单的验证规则
+        $scope.firstName= "John";
+        $scope.lastName= "Doe";
+    });
+    app.directive("anDirective", function() {
+        return {
+            template : "<h1>自定义指令!</h1>"
+        };
+    });
+    app.controller('ctrl_login', function($scope) {
+        //            所赋的value必须满足表单的验证规则
+        $scope.userid= "John";
+//        不会执行
+//        $scope.firstName= "rose";
+
+
+//        初始化
+        $scope.result=[
+                {id:'001',name:'tom'},
+                {id:'002',name:'rose'},
+                {id:'003',name:'tony'}
+                ]
+
+    });
+
+</script>
+
+
+
+
+<!--<script>-->
+        <!--window.onload=function () {-->
+<!--//        var s='tom';-->
+<!--//        alert(`hello ${s}`);-->
+<!--//-->
+<!--//        var arr=[10,20,30];-->
+<!--//        for(i of arr){-->
+<!--//            alert(i);-->
+<!--//        }-->
+
+
+            <!--var arr=[1,2,3];-->
+
+            <!--arr.forEach(v=>alert(v));-->
+
+    <!--}-->
+<!--</script>-->
+</body>
+</html>

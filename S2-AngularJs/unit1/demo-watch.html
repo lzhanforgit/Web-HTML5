@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+
+
+<div ng-app="myApp" >
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="txt_value">
+            value:{{txt_content}}
+        </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope,$parse) {
+       $scope.$watch('txt_value',function (newvalue,oldvalue,scope) {
+           if(newvalue!==oldvalue){
+               var parseFun=$parse('txt_value');
+               $scope.txt_content=parseFun(scope);
+           }
+       })
+    });
+
+</script>
+
+
+
+
+</body>
+</html>

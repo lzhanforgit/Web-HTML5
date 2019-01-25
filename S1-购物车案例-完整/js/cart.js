@@ -3,7 +3,7 @@
  */
 window.onload=function () {
     //页面刷新时
-    ajaxGet('data/data.json',function (books) {
+    ajaxGet('../data/data.json',function (books) {
         if(window.localStorage.getItem('cartBooks')===null){
             //更新本地数据
            upadateCart(books);

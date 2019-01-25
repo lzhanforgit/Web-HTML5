@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header_css{
+  font-size: 60px;
+  color: red;
+}
+
+.input_file{
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+}
+
+.file_container{
+  width: 100px;
+  height: 100px;
+  background: url("../images/add.jpg");
+  background-size: 100px 100px;
+}
+
+.img_preview{
+  width: 100%;
+  height: 200px;
+  border: solid 1px grey;
+}

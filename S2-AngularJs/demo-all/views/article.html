@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>article</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+<div class="container">
+
+    <% include header.html%>
+    <div class="article_container">
+
+
+    <%
+       if(books.length==0){
+    %>
+        <div>对不起,没有匹配的结果</div>
+    <%
+        }else{
+            for(var i=0;i<=books.length-1;i++){
+    %>
+    <div class="row">
+        <div class="col-md-12">
+            <header>
+                <div class="title"><%=books[i].title%></div>
+                <div class="date">
+                   <%=books[i].date%>
+                </div>
+                <div class="div_img">
+                    <img src="/images/<%=books[i].icon%>" alt="">
+                </div>
+            </header>
+            <article>
+                <%=books[i].content%>
+            </article>
+        </div>
+    </div>
+    <%
+            }
+    <!--end for-->
+
+
+        }
+    <!--end else-->
+
+    %>
+
+    </div>
+   <div class="row">
+       <div class="col-md-12">
+           <footer>
+
+
+               <%
+                    for(var i=1;i<=pageAcount;i++){
+               %>
+                        <a href="#"><%=i%></a>
+                        <!--<a href="/articles/?index=<%=i%>"><%=i%></a>-->
+               <%
+               }
+               %>
+
+
+           </footer>
+       </div>
+   </div>
+
+
+    </div>
+
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    $(function () {
+        $('footer a').click(function () {
+            $.ajax({
+                type:'POST',
+                url:'/articles',
+                data:{index:$(this).text()},
+                timeout:3000,
+                dataType:'json',
+                success:function (data) {
+                  loadArticle(data);
+                },
+                error:function (error) {
+//                        alert('error!!!!');
+                }
+            })
+        })
+    })
+
+    function loadArticle(data) {
+        $('.article_container').empty();
+        for(var i=0;i<data.books.length;i++){
+            $('.article_container').append('<div class="row">'+
+                    '<div class="col-md-12">'+
+                    '<header>'+
+                    '<div class="title">'+data.books[i].title+'</div>'+
+                    '<div class="date">'+ data.books[i].date+ '</div>'+
+                    '<div class="div_img">'+
+                    '<img src="/images/'+data.books[i].icon+'" alt="">'+
+                    '</div>'+
+                    '</header>'+
+                    '<article>' +data.books[i].content+ '</article>'+
+                    '</div>'+
+                    '</div>')
+        }
+    }
+</script>
+
+</body>
+</html>

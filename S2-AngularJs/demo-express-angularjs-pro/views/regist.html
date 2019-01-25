@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form" id="frmRegist">
+                <div class="form-group">
+                    <label for="InputEmail1">Email address</label>
+                    <input type="email" class="form-control" name="email" id="InputEmail1" placeholder="Enter email"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" id="InputPassword1"
+                           placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword1">Password-confirm</label>
+                    <input type="password" class="form-control" name="passwordConfirm" id="InputPassword2"
+                           placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="file_container">
+                        <input type="file" id="InputFile" name="fileImage01" class="input_file">
+                    </div>
+
+                    <div class="img_preview">
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default">Regist</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+    $(function () {
+        /* $('#frmRegist').submit(function () {
+         $.ajax({
+         type:'POST',
+         url:'/users/regist',
+         data: $('#frmRegist').serialize(),
+         timeout:3000,
+         dataType:'json',
+         success:function (data) {
+         if(data.res==1){
+         alert('用户名已存在');
+         }else if(data.res==0){
+         alert('success');
+         }else if(data.res==2){
+         alert('fail');
+         }
+         },
+         error:function (error) {
+         alert('error!!!!');
+         }
+         })
+         return false;
+         })*/
+
+//        图片预览
+        $('.file_container input').change(function (e) {
+            var file = e.target.files[0];
+            var img = new Image();
+            img.src = URL.createObjectURL(file);
+            var url = img.src;
+            var $img = $(img);
+            img.onload = function () {
+                URL.revokeObjectURL(url);
+                $('.img_preview').empty().append($img);
+            }
+        })
+
+
+        $('#frmRegist').submit(function () {
+            var formdata = new FormData($('#frmRegist')[0]);
+            $.ajax({
+                type: 'POST',
+                url: '/users/regist',
+                data: formdata,
+                timeout: 3000,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (error) {
+                    alert('error!!!!');
+                }
+            })
+            return false;
+        })
+    })
+</script>
+</body>
+</html>

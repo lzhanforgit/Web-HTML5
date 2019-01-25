@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+        td{
+
+        }
+    </style>
+</head>
+<body ng-app="articleApp" ng-controller="ctrl_content">
+    <div style="width: 900px;margin: auto;border: solid 1px grey">
+        <input type="text" ng-model="txtSearch">
+        <table style="width:100%;border: solid 1px blue">
+            <tr>
+                <td ng-click="col='id';desc=!desc">id</td>
+                <td ng-click="col='title';desc=!desc">title</td>
+            </tr>
+            <tr ng-repeat="book in result | orderBy:col:desc |filter:txtSearch">
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.introduction}}</td>
+            </tr>
+        </table>
+        <input type="button" value="load more ..." ng-click="loadmore()">
+    </div>
+
+<script>
+    var app = angular.module('articleApp', []);
+    app.controller('ctrl_content', function($scope,$http) {
+        $scope.index=1;
+        $http.get('/articles/manager/getAll/?index='+$scope.index)
+                .success(function (result) {
+                    $scope.result=result.books;
+                })
+                .error(function () {
+                    alert('error');
+                });
+        $scope.loadmore=function () {
+            $scope.index++;
+            $http.get('/articles/manager/getAll/?index='+$scope.index)
+                    .success(function (result) {
+                        for(var i in result.books){
+                            $scope.result.push(result.books[i]);
+                        }
+                    })
+                    .error(function () {
+                        alert('error');
+                    })
+        }
+
+        $scope.col = 'title';
+        $scope.desc=!$scope.desc;
+        })//end controller
+
+
+</script>
+
+</body>
+</html>

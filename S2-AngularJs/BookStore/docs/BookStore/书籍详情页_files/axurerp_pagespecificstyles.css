@@ -1,0 +1,528 @@
+﻿body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0 {
+    position:absolute;
+    left:11px;
+    top:11px;
+    width:799px;
+    height:32px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u1_normal {
+    background-image: url('../书籍详情页_files/u1_normal.png');
+}
+
+.u1_container {
+    position:absolute;
+    left:11px;
+    top:50px;
+    width:799px;
+    height:250px;
+}
+
+#u1_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:805px;
+    height:256px;
+}
+
+.u2 {
+    position:absolute;
+    left:19px;
+    top:117px;
+    width:761px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u3 {
+    position:absolute;
+    left:260px;
+    top:83px;
+    width:100px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4 {
+    position:absolute;
+    left:380px;
+    top:83px;
+    width:220px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u5 {
+    position:absolute;
+    left:260px;
+    top:132px;
+    width:100px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6 {
+    position:absolute;
+    left:380px;
+    top:132px;
+    width:220px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u7 {
+    position:absolute;
+    left:260px;
+    top:180px;
+    width:100px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8 {
+    position:absolute;
+    left:380px;
+    top:180px;
+    width:220px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u9 {
+    position:absolute;
+    left:260px;
+    top:229px;
+    width:100px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10 {
+    position:absolute;
+    left:380px;
+    top:229px;
+    width:220px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u11_normal {
+    background-image: url('../书籍详情页_files/u11_normal.png');
+}
+
+.u11_container {
+    position:absolute;
+    left:30px;
+    top:62px;
+    width:170px;
+    height:228px;
+}
+
+#u11_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:170px;
+    height:228px;
+}
+
+.u12 {
+    position:absolute;
+    left:2px;
+    top:106px;
+    width:166px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u13 {
+    position:absolute;
+    left:11px;
+    top:310px;
+    width:800px;
+    height:341px;
+    overflow:hidden;
+}
+
+#pd6u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd5u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd4u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd3u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd2u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd1u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+#pd0u13 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:800px;
+    height:341px;
+    
+}
+
+.u14_normal {
+    background-image: url('../书籍详情页_files/u14_normal.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:133px;
+    top:1px;
+    width:133px;
+    height:34px;
+}
+
+#u14_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:40px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16_normal {
+    background-image: url('../书籍详情页_files/u16_normal.png');
+}
+
+.u16_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:133px;
+    height:35px;
+}
+
+#u16_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:41px;
+}
+
+.u17 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u18_normal {
+    background-image: url('../书籍详情页_files/u14_normal.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:266px;
+    top:1px;
+    width:133px;
+    height:34px;
+}
+
+#u18_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:40px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20_normal {
+    background-image: url('../书籍详情页_files/u14_normal.png');
+}
+
+.u20_container {
+    position:absolute;
+    left:399px;
+    top:1px;
+    width:133px;
+    height:34px;
+}
+
+#u20_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:40px;
+}
+
+.u21 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22_normal {
+    background-image: url('../书籍详情页_files/u14_normal.png');
+}
+
+.u22_container {
+    position:absolute;
+    left:532px;
+    top:1px;
+    width:133px;
+    height:34px;
+}
+
+#u22_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:40px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24_normal {
+    background-image: url('../书籍详情页_files/u14_normal.png');
+}
+
+.u24_container {
+    position:absolute;
+    left:665px;
+    top:1px;
+    width:133px;
+    height:34px;
+}
+
+#u24_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:139px;
+    height:40px;
+}
+
+.u25 {
+    position:absolute;
+    left:2px;
+    top:8px;
+    width:129px;
+    height:19px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26_normal {
+    background-image: url('../书籍详情页_files/u26_normal.png');
+}
+
+.u26_container {
+    position:absolute;
+    left:0px;
+    top:36px;
+    width:798px;
+    height:305px;
+}
+
+#u26_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:804px;
+    height:311px;
+}
+
+.u27 {
+    position:absolute;
+    left:19px;
+    top:144px;
+    width:760px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

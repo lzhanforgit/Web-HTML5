@@ -1,25 +1,110 @@
 # 教程
-1. 安装
+1. mac 安装
 
-    ```
-    brew search nginx
-    brew install nginx
-    //查看版本
-    nginx -v
-    ```
-2. 目录
+	1. 安装
+	
+	    ```
+	    brew search nginx
+	    brew install nginx
+	    //查看版本
+	    nginx -v
+	    ```
+	2. 目录
+	
+	    ```
+	    默认项目目录
+	    /usr/local/nginx/html
+	    
+	    nginx.conf目录
+	    /usr/local/etc/nginx
+	    
+	    
+	    ```
+2. linux 安装
 
-    ```
-    默认项目目录
-    /usr/local/nginx/html
-    
-    nginx.conf目录
-    /usr/local/etc/nginx
-    
-    
-    ```
+	1. 开始前，请确认gcc g++开发类库是否装好，默认已经安装
+
+		安装make：
+
+				yum -y install gcc automake autoconf libtool make
+			
+		安装g++:
+
+				yum install gcc gcc-c++
+			
+		ububtu平台编译环境可以使用以下指令
+
+			apt-get install build-essential
+			apt-get install libtool
+	2. 选择一个目录，用于下载和解压安装文件
+	3. 安装PCRE库
+
+		ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/ 下载最新的 PCRE 源		码包，使用下面命令下载编译和安装 PCRE 包：（本文参照下载文件版本：		pcre-8.37.tar.gz 经过验证未发现这个版本，若想下载最新版本请打开上面网址。本		文选择pcre-8.39.tar.gz）
+		
+			cd /usr/local/src
+			wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.39.tar.gz 
+			tar -zxvf pcre-8.37.tar.gz
+			cd pcre-8.34
+			./configure
+			make
+			make install
+			
+			或者
+			./configure && make && make install
+			
+
+	3. 安装zlib库
+
+		http://zlib.net/zlib-1.2.11.tar.gz 下载最新的 zlib 源码包，使用下面命令下载编译和安装 zlib包：（本文参照下载文件版本：zlib-1.2.8.tar.gz 经过验证未发现这个版本，若想下载最新版本请打开上面网址。本文选择zlib-1.2.11.tar.gz ）
+		
+			cd /usr/local/src
+ 
+			wget http://zlib.net/zlib-1.2.11.tar.gz
+			tar -zxvf zlib-1.2.11.tar.gz
+			cd zlib-1.2.11
+			./configure
+			make
+			make install
+			
+	2. 安装openssl（某些vps默认没装ssl)
+
+			cd /usr/local/src
+			wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz
+			tar -zxvf openssl-1.0.1t.tar.gz
+			
+	1. 安装nginx
+
+			cd /usr/local/src
+			wget http://nginx.org/download/nginx-1.1.10.tar.gz
+			tar -zxvf nginx-1.1.10.tar.gz
+			cd nginx-1.1.10
+			./configure
+			make
+			make install
+			
+		**这里可能会出现报错**
+		
+			ubuntu下
+
+				apt-get install openssl
+				apt-get install libssl-dev
+				
+			centos下
+				yum -y install openssl openssl-devel
+	
+	4. 启动nginx
+
+		因为可能apeache占用80端口，apeache端口尽量不要修改，我们选择修改nginx端口。
+		
+		linux 修改路径/usr/local/nginx/conf/nginx.conf，Windows 下 安装目录\conf\nginx.conf。
+		
+		修改端口为8090，localhost修改为你服务器ip地址。
+		
+			sudo /usr/local/nginx/nginx
+			
+			
 2. 常用命令
-3. 
+
     ```
     nginx               启动（mac 启动1024以内端口需要授权：sudo nginx）
     nginx -s stop       快速关闭Nginx，可能不保存相关信息，并迅速终止web服务。
@@ -374,3 +459,4 @@ ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0           tcp dpt:80
 
 就说明防火墙规则已经添加成功了，再在站外访问就正常了。
 
+  

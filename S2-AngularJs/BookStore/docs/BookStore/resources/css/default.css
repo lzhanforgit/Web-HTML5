@@ -1,0 +1,162 @@
+﻿body {
+    font-family : Helvetica, Arial, Sans-Serif;
+    background-color: #F9F9F9;
+    overflow:hidden;
+}
+
+a {
+    cursor: pointer;
+}
+
+#maximizePanelContainer 
+{
+	font-size: 4px;
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	width: 15px;
+	height: 13px;
+	overflow: visible;
+	z-index: 1000;
+}
+
+#maximizePanel 
+{
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	margin: 2px 0px 0px 1px;
+}
+
+#maximizePanel a 
+{
+	position:absolute;
+	left: 0px;
+	top: 0px;
+	font-size: 4px;
+	padding: 2px 5px 1px 5px;
+	border: 1px solid #777;
+	border-top-width: 2px;
+	/*border: none;*/
+	background-color: #DDD;
+	/*background-color: Transparent;*/
+	text-decoration: none;
+	border-radius: 2px;
+	opacity: .5;
+}
+
+#interfaceControlFrameMinimizeContainer 
+{
+    margin: 0px 4px 0px 4px;
+	position:relative;
+	font-size: 2px; /*for IE*/
+	text-align: right;
+	padding-top: 4px;
+	z-index: 100;
+}
+
+#interfaceControlFrameMinimizeContainer a {
+	font-size: 2px;
+	padding: 1px 6px 1px 6px;
+	border: 1px solid #777;
+	background-color: #AAA;
+	text-decoration: none;
+	border-radius: 2px;
+}
+
+#interfaceControlFrameMinimizeContainer a:hover {
+	border: 1 solid #777;
+	background-color: #CCC;	
+}
+
+#interfaceControlFrameHeader li {
+    display: inline;
+}
+
+#interfaceControlFrameHeader a 
+{
+	outline: none;
+    border: 1px solid #CCC;
+    border-bottom : none;
+    padding: 3px 10px 4px 10px;
+    margin-left: 5px;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+    background-color: #EAEAEA;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    -moz-border-top-left-radius:3px;
+    -moz-border-top-right-radius:3px;
+}
+
+#interfaceControlFrameHeader a:link {
+}
+
+#interfaceControlFrameHeader a:hover {
+    background-color: #DDD;
+}
+
+#interfaceControlFrameHeader a.selected {
+    padding: 4px 10px 4px 10px;
+    border-bottom: 2px solid White;
+    background-color: White;
+    font-weight:bold;
+}
+
+#interfaceControlFrameHeaderContainer
+{
+    margin: 0px 4px 0px 4px;
+    overflow: visible;
+	width: 250px;
+}
+
+#interfaceControlFrameHeader {
+	position:relative;
+    list-style: none;
+    padding : 4px 0px 4px 5px;
+    font-size: .7em;
+    z-index: 50;
+    text-shadow: 0 1px 2px #FFF;
+}
+
+
+#interfaceControlFrame {
+    /*height:100%;*/
+    /*background-color:Aqua;*/   
+}
+
+#interfaceControlFrameContainer 
+{
+    background-color: White;
+    border: 1px solid #CCC;
+    margin: 0px 4px 0px 4px;
+    padding: 2px 0px 2px 0px;
+    border-radius: 3px;
+    overflow: hidden;
+    /*height:100%;*/
+}
+
+#interfaceControlFrameLogoContainer
+{
+	background-color: White;
+    border-bottom: 1px solid #EFEFEF;
+    margin: -5px 0px 5px 0px;
+    padding: 10px 5px 5px 5px;
+    overflow: hidden;
+}
+
+#interfaceControlFrameLogoImageContainer
+{
+	text-align: center;
+}
+
+#interfaceControlFrameLogoCaptionContainer
+{
+	text-align: center;
+    margin: 5px 10px 0px 10px;
+	font-size: .7em;
+	color: #333;
+}

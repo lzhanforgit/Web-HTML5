@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+    <!--<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+
+
+<div ng-app="myApp" >
+
+    <div ng-controller="ctrl_content">
+        <div style="margin: auto;width: 300px">
+            <input type="text" ng-model="txtSearch" style="width: 300px;height: 40px;">
+        </div>
+        <div style="width: 500px;height:200px;margin: auto">
+            <table style="width: 500px;margin: auto">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>money</th>
+                </tr>
+                <tr ng-repeat="con in result |limitTo:5 | filter:txtSearch | orderBy:'money' " style="text-align: center">
+                    <!--id:<span style="color: red">{{con.id }}</span>     &#45;&#45;name:{{con.name | uppercase}}&#45;&#45;-->
+                    <!--money:{{con.money | currency}}-->
+                    <!--<td ng-repeat="(key,value) in con" >-->
+                        <!--{{value}}-->
+                    <!--</td>-->
+                    <td>{{con.id}}</td>
+                    <td>{{con.name | limitTo:5}}</td>
+                    <td>{{con.money  | currency }}</td>
+                    <td>{{con.birthday | date}}</td>
+                </tr>
+            </table>
+        </div>
+        <div style="width:500px;height: 40px;background-color: grey;margin:auto">
+
+        </div>
+        {{price}}
+    </div>
+</div>
+
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('ctrl_content', function($scope,$rootScope,$filter) {
+        //所赋的value必须满足表单的验证规则
+//        $scope.userid= "John";
+        $scope.userAge=0;
+        $scope.userid=$rootScope.userid;
+        $scope.result=[
+            {id:'001',name:'tom',money:2000,birthday:'2000/2/1'},
+            {id:'002',name:'rose',money:30000,birthday:'2004/5/1'},
+            {id:'003',name:'zhangdong',money:4500,birthday:'1992/2/1'},
+            {id:'004',name:'wangsha',money:320,birthday:'1998/7/1'},
+            {id:'005',name:'li',money:3100,birthday:'1992/11/4'},
+            {id:'006',name:'han',money:1000000,birthday:'1997/2/1'},
+            {id:'007',name:'lu',money:28000,birthday:'1990/9/1'},
+            {id:'008',name:'yang',money:2100,birthday:'1994/2/1'},
+            {id:'009',name:'zhao',money:110,birthday:'1999/2/1'},
+            {id:'0010',name:'liu',money:10,birthday:'1999/1/1'},
+            {id:'0011',name:'wangni'}
+        ]
+        $scope.price = $filter('currency')(12000);
+
+    });
+</script>
+
+</body>
+</html>
