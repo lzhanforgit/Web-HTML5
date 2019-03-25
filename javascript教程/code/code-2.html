@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(age,name) {
+        this.age=age;
+        this.name=name;
+    }
+    Person.prototype.show=function () {
+
+    };
+
+//    Person.prototype={
+//        constructor:'Person',
+//        nation:'china',
+//        language:'chinese'
+//    };
+
+    var person=new Person(12);
+
+    function Student(name,age) {
+        this.school='gem';
+
+    }
+
+    Student.prototype=new Person();
+
+    var s=new Student();
+    var s2=new Student();
+
+//    console.log(s.constructor);
+
+    s.name='tom';
+    s2.name='xiaoming';
+
+    console.log(s.name);
+    console.log(s2.name);
+
+</script>
+</body>
+</html>
